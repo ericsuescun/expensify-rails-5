@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 1
+  exdate: 2019-07-30
+  concept: MyText
+  category: 1
+  amount: 1
+
+two:
+  type: 1
+  exdate: 2019-07-30
+  concept: MyText
+  category: 1
+  amount: 1

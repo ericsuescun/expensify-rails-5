@@ -1,0 +1,21 @@
+<tr id="<%= expense.id %>">
+  <td class="date">
+    <div class="day"><%= expense.exdate.day %></div>
+    <div class="month"><%= expense.exdate.strftime('%b')%></div>
+  </td>
+  <td>
+    <div>
+      <span class="type"><%= expense.extype %></span>
+    </div>
+    <div>
+      <span class="concept"><%= expense.concept %></span>
+    </div>
+  </td>
+  <td class="category text-right"><%= expense.category %></td>
+  <td class="text-right" style="width: 170px;">
+    <div class="amount"><%= number_to_currency(expense.amount, precision: 0, delimiter: ',') %></div>
+    <div class="actions">
+      <a href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a>
+      <a href="#"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+  </td>
+</tr>
