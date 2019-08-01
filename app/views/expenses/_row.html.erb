@@ -15,7 +15,7 @@
   <td class="text-right" style="width: 170px;">
     <div class="amount"><%= number_to_currency(expense.amount, precision: 0, delimiter: ',') %></div>
     <div class="actions">
-      <a href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a>
-      <a href="#"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+      <%= link_to "Editar", edit_expense_path(expense), remote: true %>
+      <%= link_to "Delete", expense_path(expense), method: :delete, remote: true, data: { confirm: 'Confirmas el borrado?' } %>
   </td>
 </tr>

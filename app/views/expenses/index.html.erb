@@ -36,7 +36,8 @@
           <!-- <a href="#" class="btn btn-success pull-left"><span class="glyphicon glyphicon-plus"></span> New Expense</a> -->
           <%= link_to "New Expense", new_expense_path, remote: true, class: "btn btn-success pull-left" %>
           <h4 class="dropdown pull-right">
-            <button type="button" class="dropdown-toggle btn btn-link" data-toggle="dropdown">April 2016 <span class="caret"></span></button>
+            <!-- <button type="button" class="dropdown-toggle btn btn-link" data-toggle="dropdown">April 2016 <span class="caret"></span></button> -->
+            <button type="button" class="dropdown-toggle btn btn-link" data-toggle="dropdown"><%= Date.today.strftime('%B')%> <%= Date.today.year%> <span class="caret"></span></button>
             <ul class="dropdown-menu" role="menu">
               <li role="presentation"><a href="#">April 2016</a></li>
               <li role="presentation"><a href="#">March 2016</a></li>
@@ -95,9 +96,7 @@
               <td class="text-right" style="width: 170px;">
                 <div class="amount"><%= number_to_currency(expense.amount, precision: 0, delimiter: ',') %></div>
                 <div class="actions">
-                  <!-- <a href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> -->
                   <%= link_to "Editar", edit_expense_path(expense), remote: true %>
-                  <!-- <a href="#"><span class="glyphicon glyphicon-trash"></span> Delete</a> -->
                   <%= link_to "Delete", expense_path(expense), method: :delete, remote: true, data: { confirm: 'Confirmas el borrado?' } %>
               </td>
             </tr>
