@@ -41,7 +41,11 @@ $(document).ready(function () {
                                       '<td>' + expense.concept + '</td>'  +
                                       '<td class=\"category text-right\">' + 
                                         '<div class="amount">' + 
-                                        expense.category + 
+                                            expense.category + 
+                                        '</div>' +
+                                        '<div class="actions">' + 
+                                            '<a data-remote=\"true\" href=\"/expenses/' + expense.id + '/edit\">Editar</a>' +
+                                            '<a data-confirm=\"Confirmas el borrado?\" data-remote=\"true\" rel=\"nofollow\" data-method=\"delete\" href=\"/expenses/' + expense.id + '\">Delete</a>' +
                                         '</div>' +
                                       '</td>'  +
                                       '<td class=\"text-right\" style=\"width: 170px;\">' + expense.amount + '</td>'  +
@@ -56,3 +60,4 @@ $(document).ready(function () {
         $(this).remove();
     });
 });
+
