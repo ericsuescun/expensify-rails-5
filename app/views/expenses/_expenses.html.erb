@@ -1,0 +1,21 @@
+<tr>
+  <td class="date">
+    <div class="day">25</div>
+    <div class="month">Mar</div>
+  </td>
+  <td>
+    <div>
+      <span class="type">Desfalco</span>
+    </div>
+    <div>
+      <span class="concept">Pendejadas</span>
+    </div>
+  </td>
+  <td class="category text-right">Bobadas</td>
+  <td class="text-right" style="width: 170px;">
+    <div class="amount">1000</div>
+    <div class="actions">
+      <%= link_to "Editar", edit_expense_path(expense), remote: true %>
+      <%= link_to "Delete", expense_path(expense), method: :delete, remote: true, data: { confirm: 'Confirmas el borrado?' } %>
+  </td>
+</tr>
