@@ -16,13 +16,13 @@ $(document).ready(function () {
         $('tbody#expenses-table-body tr').remove();
         // console.log($(this).find('a').attr('href'));
         // $('tbody#expenses-table-body').append('<%= j render "../../views/expenses/expenses", expense: @expense %>');
-        $('tbody#expenses-table-body').append('<tr>' +
-                    '<td>' + 10 + '</td>' +
-                    '<td>' + 10 + '</td>'  +
-                    '<td>' + 10 + '</td>'  +
-                    '<td>' + 10 + '</td>'  +
-                    '</tr>'
-        );
+        // $('tbody#expenses-table-body').append('<tr>' +
+        //             '<td>' + 10 + '</td>' +
+        //             '<td>' + 10 + '</td>'  +
+        //             '<td>' + 10 + '</td>'  +
+        //             '<td>' + 10 + '</td>'  +
+        //             '</tr>'
+        // );
         $.getJSON( "http://localhost:3000/expenses.json", function( expenses ) {
           $.each(expenses, function(i, expense) {
             var dex = new Date(expense.exdate).getMonth();
@@ -47,15 +47,17 @@ $(document).ready(function () {
                                           '</div>' +
                                       '</td>'  +
                                       '<td class=\"category text-right\">' + 
-                                        '<div class=\"amount\">' + 
                                             expense.category + 
+                                      '</td>'  +
+                                      '<td class=\"text-right\" style=\"width: 170px;\">' + 
+                                        '<div class=\"amount\">' + 
+                                            expense.amount.toLocaleString("en-US", {style: "currency", currency: "USD", minimumFractionDigits: 0}) + 
                                         '</div>' +
                                         '<div class="actions">' + 
-                                            '<a data-remote=\"true\" href=\"/expenses/' + expense.id + '/edit\">Editar</a>' +
-                                            '<a data-confirm=\"Confirmas el borrado?\" data-remote=\"true\" rel=\"nofollow\" data-method=\"delete\" href=\"/expenses/' + expense.id + '\">Delete</a>' +
+                                            '<a data-remote=\"true\" href=\"/expenses/' + expense.id + '/edit\"><span class="glyphicon glyphicon-edit"></span> Editar</a>' +
+                                            '<a data-confirm=\"Confirmas el borrado?\" data-remote=\"true\" rel=\"nofollow\" data-method=\"delete\" href=\"/expenses/' + expense.id + '\"><span class="glyphicon glyphicon-trash"></span> Delete</a>' +
                                         '</div>' +
                                       '</td>'  +
-                                      '<td class=\"text-right\" style=\"width: 170px;\">' + expense.amount.toLocaleString("en-US", {style: "currency", currency: "USD", minimumFractionDigits: 0}) + '</td>'  +
                                   '</tr>'
                 );
             }
