@@ -38,9 +38,16 @@ $(document).ready(function () {
                                         '<div class=\"month\">' + months[dex] +
                                         '</div>' +
                                       '</td>' +
-                                      '<td>' + expense.concept + '</td>'  +
+                                      '<td>' +
+                                          '<div>' +
+                                            '<span class=\"type\">' + expense.extype + '</span>' +
+                                          '</div>' +
+                                          '<div>' +
+                                            '<span class=\"concept\">' + expense.concept + '</span>' +
+                                          '</div>' +
+                                      '</td>'  +
                                       '<td class=\"category text-right\">' + 
-                                        '<div class="amount">' + 
+                                        '<div class=\"amount\">' + 
                                             expense.category + 
                                         '</div>' +
                                         '<div class="actions">' + 
