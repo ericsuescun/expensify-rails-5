@@ -55,7 +55,7 @@ $(document).ready(function () {
                                             '<a data-confirm=\"Confirmas el borrado?\" data-remote=\"true\" rel=\"nofollow\" data-method=\"delete\" href=\"/expenses/' + expense.id + '\">Delete</a>' +
                                         '</div>' +
                                       '</td>'  +
-                                      '<td class=\"text-right\" style=\"width: 170px;\">' + expense.amount + '</td>'  +
+                                      '<td class=\"text-right\" style=\"width: 170px;\">' + expense.amount.toLocaleString("en-US", {style: "currency", currency: "USD", minimumFractionDigits: 0}) + '</td>'  +
                                   '</tr>'
                 );
             }
