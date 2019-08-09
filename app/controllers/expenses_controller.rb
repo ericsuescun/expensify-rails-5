@@ -1,13 +1,14 @@
 class ExpensesController < ApplicationController
+  
   def index
     @tab = :expenses
     date_range = Date.today.beginning_of_month..Date.today.end_of_month
-    @expensesNow = Expense.where(:exdate =>  date_range)
-    @expenses = Expense.all
+    @expensesNow = Expense.where(:exdate =>  date_range).order('exdate DESC')
+    @expenses = Expense.order('exdate DESC')
 
     respond_to do |format|
       format.html
-      format.js
+      # format.js
       format.json { render :json => @expenses }
     end
 
