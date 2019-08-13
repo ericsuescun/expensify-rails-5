@@ -1,6 +1,6 @@
-function filters() {
+function refresh() {
   $("ul.dropdown-menu li").click(function(e) {
-      // e.preventDefault();
+      e.preventDefault();
       var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
       var monthsLong = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
       // alert("Clicked. id = " + this.id.substring(0,10));
