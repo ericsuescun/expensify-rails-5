@@ -15,11 +15,7 @@
             </div>
             <div class="col-4">
               <div class="form-group">
-                <% if task == "new" %>
-                  <%= f.date_field :exdate, :value => Date.today, class: "form-control input-lg", placeholder: "Fecha" %>
-                <% else %>
-                  <%= f.date_field :exdate, class: "form-control input-lg", placeholder: "Fecha" %>
-                <% end %>
+                <%= f.date_field :exdate, class: "form-control input-lg", placeholder: "Fecha" %>
               </div>
             </div>
           </div>
@@ -41,7 +37,7 @@
         </div>
 
         <div class="modal-footer">
-          <%= f.submit class: "btn btn-primary btn-lg btn-block" %>
+          <%= f.submit class: "btn btn-primary btn-lg btn-block", id: "submitButton" %>
         </div>
       <% end %>
     </div>

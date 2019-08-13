@@ -1,3 +1,4 @@
 $('tr#<%= @expense.id %>').remove();
 $('table tbody').append(' <%= j render "row", expense: @expense %>');
-$('#expense-modal').modal('hide');
+// $('#expense-modal').modal('hide');
+modalClose();

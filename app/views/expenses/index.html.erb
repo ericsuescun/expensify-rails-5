@@ -88,7 +88,7 @@
                   <span class="type"><%= expense.extype %></span>
                 </div>
                 <div>
-                  <span class="concept"><%= expense.concept%></span>
+                  <span class="concept"><%= expense.concept + ' el ' + expense.exdate.to_s %></span>
                 </div>
               </td>
               <td class="category text-right"><%= expense.category %></td>
@@ -109,3 +109,6 @@
     </div>
   </div>
 </div>
+<script type="text/javascript">
+  filters();
+</script>

@@ -2,7 +2,8 @@
   // add the row to the table, show alert and hide modal
   $('table tbody').append(' <%= j render "row", expense: @expense %>');
   $('.alert-success').html("El expense ha sido creado con éxito").show();
-  $('#expense-modal').modal('hide');
+  // $('#expense-modal').modal('hide');
+  modalClose();
 <% else %>
   // show first error
   alert('<%= @expense.errors.full_messages[0] %>');

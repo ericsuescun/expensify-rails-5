@@ -9,7 +9,7 @@ class ExpensesController < ApplicationController
     respond_to do |format|
       format.html
       # format.js
-      format.json { render :json => @expenses }
+      format.json { render :json => @expenses.order('exdate DESC') }
     end
 
   end
@@ -20,15 +20,24 @@ class ExpensesController < ApplicationController
 
   def create
     @expense = Expense.create(expense_params)
+    respond_to do |format|
+      format.js
+    end
   end
 
   def edit
     @expense = Expense.find(params[:id])
+    respond_to do |format|
+      format.js
+    end
   end
 
   def update
     @expense = Expense.find(params[:id])
     @expense.update(expense_params)
+    respond_to do |format|
+      format.js
+    end
   end
 
   def destroy
