@@ -15,7 +15,11 @@
             </div>
             <div class="col-4">
               <div class="form-group">
-                <%= f.date_field :exdate, class: "form-control input-lg", placeholder: "Fecha" %>
+                <% if task == "new" %>
+                  <%= f.date_field :exdate, :value => Date.today, class: "form-control input-lg", placeholder: "Fecha" %>
+                <% else %>
+                  <%= f.date_field :exdate, :value => @expense.exdate, class: "form-control input-lg", placeholder: "Fecha" %>
+                <% end %>
               </div>
             </div>
           </div>
