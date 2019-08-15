@@ -2,16 +2,14 @@ class ExpensesController < ApplicationController
   
   def index
     @tab = :expenses
-    # if params = nil
-    #   date_range = Date.today.beginning_of_month..Date.today.end_of_month
-    #   @expensesNow = Expense.where(:exdate =>  date_range).order('exdate DESC')
-    #   @expenses = Expense.order('exdate DESC')
-    # else
-    date_range = Date.new(params[:year].to_i,params[:month].to_i,1).beginning_of_month..Date.new(params[:year].to_i,params[:month].to_i,1).end_of_month
-      @expensesNow = Expense.where(:exdate =>  date_range).order('exdate DESC')
-      @expenses = Expense.order('exdate DESC')
-    # end
+    if params[:year].blank? && params[:month].blank?
+      date_range = Date.today.beginning_of_month..Date.today.end_of_month
+    else
+      date_range = Date.new(params[:year].to_i,params[:month].to_i,1).beginning_of_month..Date.new(params[:year].to_i,params[:month].to_i,1).end_of_month
+    end
 
+    @expensesNow = Expense.where(:exdate =>  date_range).order('exdate DESC')
+    @expenses = Expense.order('exdate DESC')
     respond_to do |format|
       format.html
       # format.js

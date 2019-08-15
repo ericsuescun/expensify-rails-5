@@ -36,7 +36,11 @@
           <!-- <a href="#" class="btn btn-success pull-left"><span class="glyphicon glyphicon-plus"></span> New Expense</a> -->
           <%= link_to "New Expense", new_expense_path, remote: true, class: "btn btn-success pull-left" %>
           <h4 class="dropdown pull-right">
-            <button id="dateFilter" type="button" class="dropdown-toggle btn btn-link" data-toggle="dropdown"><%= Date.today.strftime('%B')%> <%= Date.today.year%> <span class="caret"></span></button>
+            <% if params[:year].blank? && params[:month].blank? %>
+              <button id="dateFilter" type="button" class="dropdown-toggle btn btn-link" data-toggle="dropdown"><%= Date.today.strftime('%B')%> <%= Date.today.year%> <span class="caret"></span></button>
+            <% else %>
+              <button id="dateFilter" type="button" class="dropdown-toggle btn btn-link" data-toggle="dropdown"><%= Date.new(params[:year].to_i,params[:month].to_i,1).strftime('%B')%> <%= params[:year]%> <span class="caret"></span></button>
+            <% end %>
             <ul class="dropdown-menu" role="menu">
               <% for n in 0..11 do %>
                 <li role="presentation" id="<%= n.month.ago %>"><a href="<%= '/expenses?month=' + n.month.ago.strftime('%-m') + '&year=' + n.month.ago.year.to_s %>"><%= n.month.ago.strftime('%B')%> <%= n.month.ago.year %></a></li>
@@ -56,7 +60,7 @@
           </tr>
         </thead>
         <tbody id="expenses-table-body">
-          <tr>
+          <!-- <tr>
             <td class="date">
               <div class="day">24</div>
               <div class="month">Apr</div>
@@ -76,7 +80,7 @@
                 <a href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a>
                 <a href="#"><span class="glyphicon glyphicon-trash"></span> Delete</a>
             </td>
-          </tr>
+          </tr> -->
           <% @expensesNow.each do |expense| %>
             <tr id="<%= expense.id %>">
               <td class="date">
@@ -109,6 +113,4 @@
     </div>
   </div>
 </div>
-<script type="text/javascript">
-  filters();
-</script>
+
