@@ -16,21 +16,22 @@
       </div>
     </div>
     <div class="col-md-9 index-data" id="index-data">
-      <div class="row" style="margin-top: 10px;" id="index-bar">
+      <%= render 'indexbar' %>
+<!--       <div class="row" style="margin-top: 10px;" id="index-bar">
         <div class="summary-box col-md-4 text-center">
-          <div class="summary-value"><%= number_to_currency(@expensesNow.sum(:amount), precision: 0, delimiter: ',') %></div>
+          <div class="summary-value"><%= number_to_currency(@expenses.sum(:amount), precision: 0, delimiter: ',') %></div>
           <div class="summary-label">Total</div>
 
         </diV>
         <div class="summary-box col-md-4 text-center">
-          <div class="summary-value"><%= @expensesNow.count %></div>
+          <div class="summary-value"><%= @expenses.count %></div>
           <div class="summary-label">Transactions</div>
         </div>
         <div class="summary-box col-md-4 text-center">
-          <div class="summary-value"><%= number_to_currency(@expensesNow.average(:amount), precision: 0, delimiter: ',') %></div>
+          <div class="summary-value"><%= number_to_currency(@expenses.average(:amount), precision: 0, delimiter: ',') %></div>
           <div class="summary-label">Average</div>
         </div>
-      </div>
+      </div> -->
 
       <div class="row" style="margin-top: 20px;">
         <div class="col-md-12">
@@ -87,7 +88,8 @@
                 <a href="#"><span class="glyphicon glyphicon-trash"></span> Delete</a>
             </td>
           </tr> -->
-          <% @expensesNow.each do |expense| %>
+          <%= render 'expenses' %>
+<!--           <% @expenses.each do |expense| %>
             <tr id="<%= expense.id %>">
               <td class="date">
                 <div class="day"><%= expense.exdate.day %></div>
@@ -113,7 +115,7 @@
                   <% end %>
               </td>
             </tr>
-          <% end %>
+          <% end %> -->
         </tbody>
       </table>
     </div>
