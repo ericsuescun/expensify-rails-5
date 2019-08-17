@@ -1,21 +1,27 @@
-<tr>
-  <td class="date">
-    <div class="day">25</div>
-    <div class="month">Mar</div>
-  </td>
-  <td>
-    <div>
-      <span class="type">Desfalco</span>
-    </div>
-    <div>
-      <span class="concept">Pendejadas</span>
-    </div>
-  </td>
-  <td class="category text-right">Bobadas</td>
-  <td class="text-right" style="width: 170px;">
-    <div class="amount">1000</div>
-    <div class="actions">
-      <%= link_to "Editar", edit_expense_path(expense), remote: true %>
-      <%= link_to "Delete", expense_path(expense), method: :delete, remote: true, data: { confirm: 'Confirmas el borrado?' } %>
-  </td>
-</tr>
+<% @expensesNow.each do |expense| %>
+  <tr id="<%= expense.id %>">
+    <td class="date">
+      <div class="day"><%= expense.exdate.day %></div>
+      <div class="month"><%= expense.exdate.strftime('%b')%></div>
+    </td>
+    <td>
+      <div>
+        <span class="type"><%= expense.extype %></span>
+      </div>
+      <div>
+        <span class="concept"><%= expense.concept + ' el ' + expense.exdate.to_s %></span>
+      </div>
+    </td>
+    <td class="category text-right"><%= expense.category %></td>
+    <td class="text-right" style="width: 170px;">
+      <div class="amount"><%= number_to_currency(expense.amount, precision: 0, delimiter: ',') %></div>
+      <div class="actions">
+        <%= link_to edit_expense_path(expense), remote: true do %>
+          <span class="glyphicon glyphicon-edit"></span> Editar
+        <% end %>
+        <%= link_to expense_path(expense), method: :delete, remote: true, data: { confirm: 'Confirmas el borrado?' }  do %>
+          <span class="glyphicon glyphicon-trash"></span> Delete
+        <% end %>
+    </td>
+  </tr>
+<% end %>

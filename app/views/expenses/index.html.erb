@@ -15,18 +15,19 @@
         <!-- more categories  -->
       </div>
     </div>
-    <div class="col-md-9 index-data">
-      <div class="row" style="margin-top: 10px;">
+    <div class="col-md-9 index-data" id="index-data">
+      <div class="row" style="margin-top: 10px;" id="index-bar">
         <div class="summary-box col-md-4 text-center">
-          <div class="summary-value">$2,500,000</div>
+          <div class="summary-value"><%= number_to_currency(@expensesNow.sum(:amount), precision: 0, delimiter: ',') %></div>
           <div class="summary-label">Total</div>
+
         </diV>
-        <div class="summary-box col-md-4 text-center" id="eric">
-          <div class="summary-value">2</div>
+        <div class="summary-box col-md-4 text-center">
+          <div class="summary-value"><%= @expensesNow.count %></div>
           <div class="summary-label">Transactions</div>
         </div>
         <div class="summary-box col-md-4 text-center">
-          <div class="summary-value">$1,000,000</div>
+          <div class="summary-value"><%= number_to_currency(@expensesNow.average(:amount), precision: 0, delimiter: ',') %></div>
           <div class="summary-label">Average</div>
         </div>
       </div>
@@ -43,7 +44,12 @@
             <% end %>
             <ul class="dropdown-menu" role="menu">
               <% for n in 0..11 do %>
-                <li role="presentation" id="<%= n.month.ago %>"><a href="<%= '/expenses?month=' + n.month.ago.strftime('%-m') + '&year=' + n.month.ago.year.to_s %>"><%= n.month.ago.strftime('%B')%> <%= n.month.ago.year %></a></li>
+                <!-- <li role="presentation" id="<%= n.month.ago %>"><a href="<%= '/expenses?month=' + n.month.ago.strftime('%-m') + '&year=' + n.month.ago.year.to_s %>"><%= n.month.ago.strftime('%B')%> <%= n.month.ago.year %></a></li> -->
+                <li role="presentation" id="<%= n.month.ago %>">
+                  <%= link_to '/expenses?month=' + n.month.ago.strftime('%-m') + '&year=' + n.month.ago.year.to_s, remote: true, id: n.month.ago do %>
+                    <%= n.month.ago.strftime('%B')%> <%= n.month.ago.year %>
+                  <% end %>
+                </li>
               <% end %>
             </ul>
           </h4>
@@ -113,6 +119,6 @@
     </div>
   </div>
 </div>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   refresh();
-</script>
+</script> -->
