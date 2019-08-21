@@ -1,9 +1,15 @@
 <% if @expense.errors.empty? %>
   // add the row to the table, show alert and hide modal
-  $('table tbody').append(' <%= j render "row", expense: @expense %>');
+  // $('table tbody').append(' <%= j render "row", expense: @expense %>');
   $('.alert-success').html("El expense ha sido creado con éxito").show();
   // $('#expense-modal').modal('hide');
   modalClose();
+  $('tbody#expenses-table-body tr').remove();
+  $('tbody#expenses-table-body').append('<%= j render "expenses" %>');
+  $('#index-bar').remove();
+  $('div#index-data').prepend('<%= j render "indexbar" %>');
+  $('#dateFilter').remove();
+  $('h4.dropdown').prepend('<%= j render "dateFilter" %>');
 <% else %>
   // show first error
   alert('<%= @expense.errors.full_messages[0] %>');

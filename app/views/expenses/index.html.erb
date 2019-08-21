@@ -17,22 +17,6 @@
     </div>
     <div class="col-md-9 index-data" id="index-data">
       <%= render 'indexbar' %>
-<!--       <div class="row" style="margin-top: 10px;" id="index-bar">
-        <div class="summary-box col-md-4 text-center">
-          <div class="summary-value"><%= number_to_currency(@expenses.sum(:amount), precision: 0, delimiter: ',') %></div>
-          <div class="summary-label">Total</div>
-
-        </diV>
-        <div class="summary-box col-md-4 text-center">
-          <div class="summary-value"><%= @expenses.count %></div>
-          <div class="summary-label">Transactions</div>
-        </div>
-        <div class="summary-box col-md-4 text-center">
-          <div class="summary-value"><%= number_to_currency(@expenses.average(:amount), precision: 0, delimiter: ',') %></div>
-          <div class="summary-label">Average</div>
-        </div>
-      </div> -->
-
       <div class="row" style="margin-top: 20px;">
         <div class="col-md-12">
           <!-- <a href="#" class="btn btn-success pull-left"><span class="glyphicon glyphicon-plus"></span> New Expense</a> -->
@@ -45,7 +29,6 @@
             <% end %>
             <ul class="dropdown-menu" role="menu">
               <% for n in 0..11 do %>
-                <!-- <li role="presentation" id="<%= n.month.ago %>"><a href="<%= '/expenses?month=' + n.month.ago.strftime('%-m') + '&year=' + n.month.ago.year.to_s %>"><%= n.month.ago.strftime('%B')%> <%= n.month.ago.year %></a></li> -->
                 <li role="presentation" id="<%= n.month.ago %>">
                   <%= link_to '/expenses?month=' + n.month.ago.strftime('%-m') + '&year=' + n.month.ago.year.to_s, remote: true, id: n.month.ago do %>
                     <%= n.month.ago.strftime('%B')%> <%= n.month.ago.year %>
@@ -67,55 +50,7 @@
           </tr>
         </thead>
         <tbody id="expenses-table-body">
-          <!-- <tr>
-            <td class="date">
-              <div class="day">24</div>
-              <div class="month">Apr</div>
-            </td>
-            <td>
-              <div>
-                <span class="type">Purchase</span>
-              </div>
-              <div>
-                <span class="concept">Example concept</span>
-              </div>
-            </td>
-            <td class="category text-right">Restaurants</td>
-            <td class="text-right" style="width: 170px;">
-              <div class="amount">$1,000,000</div>
-              <div class="actions">
-                <a href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a>
-                <a href="#"><span class="glyphicon glyphicon-trash"></span> Delete</a>
-            </td>
-          </tr> -->
           <%= render 'expenses' %>
-<!--           <% @expenses.each do |expense| %>
-            <tr id="<%= expense.id %>">
-              <td class="date">
-                <div class="day"><%= expense.exdate.day %></div>
-                <div class="month"><%= expense.exdate.strftime('%b')%></div>
-              </td>
-              <td>
-                <div>
-                  <span class="type"><%= expense.extype %></span>
-                </div>
-                <div>
-                  <span class="concept"><%= expense.concept + ' el ' + expense.exdate.to_s %></span>
-                </div>
-              </td>
-              <td class="category text-right"><%= expense.category %></td>
-              <td class="text-right" style="width: 170px;">
-                <div class="amount"><%= number_to_currency(expense.amount, precision: 0, delimiter: ',') %></div>
-                <div class="actions">
-                  <%= link_to edit_expense_path(expense), remote: true do %>
-                    <span class="glyphicon glyphicon-edit"></span> Editar
-                  <% end %>
-                  <%= link_to expense_path(expense), method: :delete, remote: true, data: { confirm: 'Confirmas el borrado?' }  do %>
-                    <span class="glyphicon glyphicon-trash"></span> Delete
-                  <% end %>
-              </td>
-            </tr>
-          <% end %> -->
         </tbody>
       </table>
     </div>

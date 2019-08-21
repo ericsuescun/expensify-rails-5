@@ -1,8 +1,31 @@
 $('tbody#expenses-table-body tr').remove();
-$('#index-bar').remove();
-$('h4').removeClass('open');
 $('tbody#expenses-table-body').append('<%= j render "expenses" %>');
+$('#index-bar').remove();
 $('div#index-data').prepend('<%= j render "indexbar" %>');
+$('h4').removeClass('open');
+var monthsLong = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+$('button#dateFilter').html(monthsLong[parseInt('<%= j params[:month] %>')-1] + ' ' + '<%= j params[:year] %>' + ' <span class="caret"></span>');
+console.log(window.location.pathname + '?month=' + parseInt('<%= j params[:month] %>') + '&year=' + '<%= j params[:year] %>');
+// window.location.href = window.location.pathname + '?month=' + parseInt('<%= j params[:month] %>') + '&year=' + '<%= j params[:year] %>'
+// var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+// $('#dateFilter').html(monthsLong['<%= j params[:month] %>'] + ' ' + '<%= j params[:year] %>');
+// $('ul.dropdown-menu li').click(function(e) {
+//       e.preventDefault();
+//       alert("Clicked. id = " + this.id.substring(0,10));
+//       console.log( "Clicked. id = " + this.id.substring(0,10) );
+//       var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+//       var monthsLong = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+//       var month = new Date(this.id.substring(0,10)).getMonth();
+//       var year = new Date(this.id.substring(0,10)).getFullYear();
+//       $('#dateFilter').html(monthsLong[month] + ' ' + year);
+// });
+
+
+
+
+
+
 
 
     // var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
