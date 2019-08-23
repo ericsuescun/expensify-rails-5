@@ -1,10 +1,12 @@
+var url;
 $(document).on("click", 'a[data-remote=true]', function(e) {
-  history.pushState(null, '', $(this).attr('href'));
+  url = $(this).attr('href');
+  history.pushState(null, '', url);
 });
 $('a.list-group-item').off('click');
 $('a.list-group-item').on('click', function(e) {
     e.preventDefault();
-    console.log($(this).html());
+    console.log(url + '&extype=' + $(this).html().toLowerCase());    
 });
 $('tbody#expenses-table-body tr').remove();
 $('tbody#expenses-table-body').append('<%= j render "expenses" %>');
