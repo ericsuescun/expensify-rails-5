@@ -3,19 +3,11 @@ class ExpensesController < ApplicationController
   def index
     @tab = :expenses
     if params[:year].blank? && params[:month].blank?
-      params[:year] = Date.today.year
-      params[:month] = Date.today.month
+      date_range = Date.today.beginning_of_month..Date.today.end_of_month
+    else
+      date_range = Date.new(params[:year].to_i,params[:month].to_i,1).beginning_of_month..Date.new(params[:year].to_i,params[:month].to_i,1).end_of_month
     end
-    date_range = Date.new(params[:year].to_i,params[:month].to_i,1).beginning_of_month..Date.new(params[:year].to_i,params[:month].to_i,1).end_of_month
-
     @expenses = Expense.where(:exdate =>  date_range).order('exdate DESC')
-    # @expenses = Expense.order('exdate DESC')
-    respond_to do |format|
-      format.html
-      format.js
-      # format.json { render :json => @expenses.order('exdate DESC') }
-    end
-
   end
 
   def new
@@ -47,7 +39,6 @@ class ExpensesController < ApplicationController
 
     respond_to do |format|
       format.js
-      # redirect_to expenses_path
     end
   end
 

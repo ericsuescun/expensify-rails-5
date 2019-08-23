@@ -30,7 +30,7 @@
             <ul class="dropdown-menu" role="menu">
               <% for n in 0..11 do %>
                 <li role="presentation" id="<%= n.month.ago %>">
-                  <%= link_to '/expenses?month=' + n.month.ago.strftime('%-m') + '&year=' + n.month.ago.year.to_s, remote: true, id: n.month.ago do %>
+                  <%= link_to expenses_path + '?month=' + n.month.ago.strftime('%-m') + '&year=' + n.month.ago.year.to_s, remote: true, id: n.month.ago, "data-turbolinks": "false" do %>
                     <%= n.month.ago.strftime('%B')%> <%= n.month.ago.year %>
                   <% end %>
                 </li>
@@ -56,6 +56,3 @@
     </div>
   </div>
 </div>
-<!-- <script type="text/javascript">
-  refresh();
-</script> -->
