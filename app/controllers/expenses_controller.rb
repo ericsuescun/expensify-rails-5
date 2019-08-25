@@ -7,7 +7,7 @@ class ExpensesController < ApplicationController
     else
       date_range = Date.new(params[:year].to_i,params[:month].to_i,1).beginning_of_month..Date.new(params[:year].to_i,params[:month].to_i,1).end_of_month
     end
-    @expenses = Expense.where(:exdate =>  date_range).order('exdate DESC')
+    @expenses = Expense.where({:exdate => date_range }).order('exdate DESC')
   end
 
   def new

@@ -3,10 +3,15 @@ $(document).on("click", 'a[data-remote=true]', function(e) {
   url = $(this).attr('href');
   history.pushState(null, '', url);
 });
-$('a.list-group-item').off('click');
-$('a.list-group-item').on('click', function(e) {
+$('a.extype').off('click');
+$('a.extype').on('click', function(e) {
     e.preventDefault();
     console.log(url + '&extype=' + $(this).html().toLowerCase());    
+});
+$('a.category').off('click');
+$('a.category').on('click', function(e) {
+    e.preventDefault();
+    console.log(url + '&category=' + $(this).html().toLowerCase());    
 });
 $('tbody#expenses-table-body tr').remove();
 $('tbody#expenses-table-body').append('<%= j render "expenses" %>');
@@ -15,4 +20,3 @@ $('div#index-data').prepend('<%= j render "indexbar" %>');
 $('h4').removeClass('open');
 var monthsLong = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 $('button#dateFilter').html(monthsLong[parseInt('<%= j params[:month] %>')-1] + ' ' + '<%= j params[:year] %>' + ' <span class="caret"></span>');
-console.log(window.location.pathname + '?month=' + parseInt('<%= j params[:month] %>') + '&year=' + '<%= j params[:year] %>');

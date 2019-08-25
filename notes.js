@@ -1,3 +1,11 @@
+$('a.list-group-item').off('click');
+$('a.list-group-item').on('click', function(e) {
+    e.preventDefault();
+    console.log(url + '&extype=' + $(this).html().toLowerCase());    
+});
+
+
+
 function refresh() {
   $("ul.dropdown-menu li").click(function(e) {
       e.preventDefault();

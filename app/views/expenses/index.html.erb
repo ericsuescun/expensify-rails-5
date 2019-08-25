@@ -2,25 +2,29 @@
   <div class="row">
     <div class="col-md-3">
       <h4 class="filter-header">Transaction Type <span>Choose to filter</span></h4>
-      <div class="list-group filter-type">
-        <a href="#" class="list-group-item">Purchase</a>
-        <a href="#" class="list-group-item">Withdrawal</a>
+      <div class="list-group filter-type extype">
+     <!--    <a href="#" class="list-group-item extype">Purchase</a>
+        <a href="#" class="list-group-item extype">Withdrawal</a> -->
         <!-- more transaction types -->
+        <% Expense.extypes.each do |extype, value| %>
+          <%= link_to extype.capitalize, new_expense_path, remote: true, class: "list-group-item extype" %>
+        <% end%>
       </div>
 
       <h4 class="filter-header">Categoría <span>Selecciona para filtrar</span></h4>
-      <div class="list-group filter-type">
-        <a href="#" class="list-group-item">Restaurants</a>
-        <a href="#" class="list-group-item">Car</a>
-        <!-- more categories  -->
+      <div class="list-group filter-type category">
+        <% Expense.categories.each do |category, value| %>
+          <%= link_to category.capitalize, new_expense_path, remote: true, class: "list-group-item extype" %>
+        <% end%>
       </div>
     </div>
     <div class="col-md-9 index-data" id="index-data">
       <%= render 'indexbar' %>
       <div class="row" style="margin-top: 20px;">
         <div class="col-md-12">
-          <!-- <a href="#" class="btn btn-success pull-left"><span class="glyphicon glyphicon-plus"></span> New Expense</a> -->
-          <%= link_to "New Expense", new_expense_path, remote: true, class: "btn btn-success pull-left" %>
+          <%= link_to new_expense_path, remote: true, class: "btn btn-success pull-left" do %>
+            <span class="glyphicon glyphicon-plus"></span> New Expense
+          <% end %>
           <h4 class="dropdown pull-right">
             <% if params[:year].blank? && params[:month].blank? %>
               <button id="dateFilter" type="button" class="dropdown-toggle btn btn-link" data-toggle="dropdown"><%= Date.today.strftime('%B')%> <%= Date.today.year%> <span class="caret"></span></button>
