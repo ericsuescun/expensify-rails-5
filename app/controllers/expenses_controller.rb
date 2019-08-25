@@ -7,7 +7,19 @@ class ExpensesController < ApplicationController
     else
       date_range = Date.new(params[:year].to_i,params[:month].to_i,1).beginning_of_month..Date.new(params[:year].to_i,params[:month].to_i,1).end_of_month
     end
-    @expenses = Expense.where({:exdate => date_range }).order('exdate DESC')
+    if params[:extype].blank? && params[:category].blank?
+      @expenses = Expense.where({:exdate => date_range }).order('exdate DESC')
+    else
+      if !params[:extype].blank? && params[:category].blank?
+        @expenses = Expense.where({:exdate => date_range, :extype => params[:extype] }).order('exdate DESC')
+      end
+      if params[:extype].blank? && !params[:category].blank?
+        @expenses = Expense.where({:exdate => date_range, :category => params[:category] }).order('exdate DESC')
+      end
+      if !params[:extype].blank? && !params[:category].blank?
+        @expenses = Expense.where({:exdate => date_range, :extype => params[:extype], :category => params[:category] }).order('exdate DESC')
+      end
+    end
   end
 
   def new
