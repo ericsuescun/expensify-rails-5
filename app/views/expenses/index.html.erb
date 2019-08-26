@@ -14,7 +14,7 @@
       <h4 class="filter-header">Categoría <span>Selecciona para filtrar</span></h4>
       <div class="list-group filter-type category">
         <% Expense.categories.each do |category, value| %>
-          <%= link_to category.capitalize, "#{request.protocol}#{request.host_with_port}#{request.fullpath}" + '&category=' + category, remote: true, class: "list-group-item extype" %>
+          <%= link_to category.capitalize, "#{request.protocol}#{request.host_with_port}#{request.fullpath}" + '&category=' + category, remote: true, class: "list-group-item category" %>
         <% end%>
       </div>
     </div>

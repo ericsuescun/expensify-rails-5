@@ -6,12 +6,14 @@ $(document).on("click", 'a[data-remote=true]', function(e) {
 $('a.extype').off('click');
 $('a.extype').on('click', function(e) {
     e.preventDefault();
-    console.log(url + '&extype=' + $(this).html().toLowerCase());    
+    console.log(url + '&extype=' + $(this).html().toLowerCase());
+    $(this).toggleClass('active'); 
 });
 $('a.category').off('click');
 $('a.category').on('click', function(e) {
     e.preventDefault();
-    console.log(url + '&category=' + $(this).html().toLowerCase());    
+    console.log(url + '&category=' + $(this).html().toLowerCase());
+    $(this).toggleClass('active');
 });
 $('tbody#expenses-table-body tr').remove();
 $('tbody#expenses-table-body').append('<%= j render "expenses" %>');
