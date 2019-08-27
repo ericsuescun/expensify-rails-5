@@ -1,24 +1,7 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-3">
-      <h4 class="filter-header">Transaction Type <span>Choose to filter</span></h4>
-      <div class="list-group filter-type extype">
-     <!--    <a href="#" class="list-group-item extype">Purchase</a>
-        <a href="#" class="list-group-item extype">Withdrawal</a> -->
-        <!-- more transaction types -->
-        <% Expense.extypes.each do |extype, value| %>
-          <%= link_to extype.capitalize, "#{request.protocol}#{request.host_with_port}#{request.fullpath}" + '&extype=' + extype, remote: true, class: "list-group-item extype" %>
-        <% end%>
-      </div>
-
-      <h4 class="filter-header">Categoría <span>Selecciona para filtrar</span></h4>
-      <div class="list-group filter-type category">
-        <% Expense.categories.each do |category, value| %>
-          <%= link_to category.capitalize, "#{request.protocol}#{request.host_with_port}#{request.fullpath}" + '&category=' + category, remote: true, class: "list-group-item category" %>
-        <% end%>
-      </div>
-    </div>
-    <div class="col-md-9 index-data" id="index-data">
+  <div class="row" id="filters">
+    <%= render 'filters' %>
+    <div class="col-md-9 index-data" id="index-filters">
       <%= render 'indexbar' %>
       <div class="row" style="margin-top: 20px;">
         <div class="col-md-12">
