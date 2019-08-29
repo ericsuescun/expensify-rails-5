@@ -1,29 +1,33 @@
-var url;
-$(document).on("click", 'a[data-remote=true]', function(e) {
-  url = $(this).attr('href');
-  history.pushState(null, '', url);
-});
-$('a.extype').off('click');
-$('a.extype').on('click', function(e) {
-    e.preventDefault();
-    console.log(url + '&extype=' + $(this).html().toLowerCase());
-    $(this).toggleClass('active'); 
-});
-$('a.category').off('click');
-$('a.category').on('click', function(e) {
-    e.preventDefault();
-    console.log(url + '&category=' + $(this).html().toLowerCase());
-    $(this).toggleClass('active');
-});
-$('tbody#expenses-table-body tr').remove();
-$('tbody#expenses-table-body').append('<%= j render "expenses" %>');
+function refresh() {
+	console.log('Index JS');
 
-$('#index-bar').remove();
-$('div#index-data').prepend('<%= j render "indexbar" %>');
+	$('a.extype').off('click');
+	$('a.extype').on('click', function(e) {
+	    e.preventDefault();
+	    console.log(url + '&extype=' + $(this).html().toLowerCase());
+	    $(this).toggleClass('active'); 
+	});
 
-$('#filters-bar').remove();
-$('div#filters').prepend('<%= j render "filters" %>');
+	$('a.category').off('click');
+	$('a.category').on('click', function(e) {
+	    e.preventDefault();
+	    console.log(url + '&category=' + $(this).html().toLowerCase());
+	    $(this).toggleClass('active');
+	});
 
-$('h4').removeClass('open');
-var monthsLong = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-$('button#dateFilter').html(monthsLong[parseInt('<%= j params[:month] %>')-1] + ' ' + '<%= j params[:year] %>' + ' <span class="caret"></span>');
+	$('tbody#expenses-table-body tr').remove();
+	$('tbody#expenses-table-body').append('<%= j render "expenses" %>');
+
+	$('#index-bar').remove();
+	$('div#index-filters').prepend('<%= j render "indexbar" %>');
+
+	$('#filters-bar').remove();
+	$('div#filters').prepend('<%= j render "filters" %>');
+
+	$('h4').removeClass('open');
+	var monthsLong = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+	$('button#dateFilter').html(monthsLong[parseInt('<%= j params[:month] %>')-1] + ' ' + '<%= j params[:year] %>' + ' <span class="caret"></span>');	
+}
+
+
+$(document).on('page:load', refresh());
