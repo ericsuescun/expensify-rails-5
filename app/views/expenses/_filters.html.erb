@@ -1,18 +1,27 @@
 <div class="col-md-3" id="filters-bar">
   <h4 class="filter-header">Transaction Type <span>Choose to filter</span></h4>
   <div class="list-group filter-type extype">
- <!--    <a href="#" class="list-group-item extype">Purchase</a>
-    <a href="#" class="list-group-item extype">Withdrawal</a> -->
-    <!-- more transaction types -->
     <% Expense.extypes.each do |extype, value| %>
-      <%= link_to extype.capitalize, "#{request.protocol}#{request.host_with_port}#{request.fullpath}" + '&extype=' + extype, remote: true, class: "list-group-item extype" %>
+      <% if extype == params[:extype] %>
+        <%= link_to extype.capitalize, removeparam("#{request.protocol}#{request.host_with_port}#{request.fullpath}", '&extype=' + extype), remote: true, class: "list-group-item extype active" %>
+      <% else %>
+        <% if "#{request.protocol}#{request.host_with_port}#{request.fullpath}".include? ('&extype=') %>
+          <%= link_to extype.capitalize, removeparam("#{request.protocol}#{request.host_with_port}#{request.fullpath}", '&extype=' + extype), remote: true, class: "list-group-item extype" %>
+        <% else %>
+          <%= link_to extype.capitalize, "#{request.protocol}#{request.host_with_port}#{request.fullpath}" + '&extype=' + extype, remote: true, class: "list-group-item extype" %>
+        <% end%>
+      <% end%>
     <% end%>
   </div>
 
   <h4 class="filter-header">Categoría <span>Selecciona para filtrar</span></h4>
   <div class="list-group filter-type category">
     <% Expense.categories.each do |category, value| %>
-      <%= link_to category.capitalize, "#{request.protocol}#{request.host_with_port}#{request.fullpath}" + '&category=' + category, remote: true, class: "list-group-item category" %>
+      <% if category == params[:category] %>
+        <%= link_to category.capitalize, removeparam("#{request.protocol}#{request.host_with_port}#{request.fullpath}", '&category=' + category), remote: true, class: "list-group-item category active" %>
+      <% else %>
+        <%= link_to category.capitalize, "#{request.protocol}#{request.host_with_port}#{request.fullpath}" + '&category=' + category, remote: true, class: "list-group-item category" %>
+      <% end %>
     <% end%>
   </div>
 </div>

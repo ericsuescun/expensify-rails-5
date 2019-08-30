@@ -1,20 +1,6 @@
 function refresh() {
 	console.log('Index JS');
 
-	$('a.extype').off('click');
-	$('a.extype').on('click', function(e) {
-	    e.preventDefault();
-	    console.log(url + '&extype=' + $(this).html().toLowerCase());
-	    $(this).toggleClass('active'); 
-	});
-
-	$('a.category').off('click');
-	$('a.category').on('click', function(e) {
-	    e.preventDefault();
-	    console.log(url + '&category=' + $(this).html().toLowerCase());
-	    $(this).toggleClass('active');
-	});
-
 	$('tbody#expenses-table-body tr').remove();
 	$('tbody#expenses-table-body').append('<%= j render "expenses" %>');
 
@@ -26,7 +12,7 @@ function refresh() {
 
 	$('h4').removeClass('open');
 	var monthsLong = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-	$('button#dateFilter').html(monthsLong[parseInt('<%= j params[:month] %>')-1] + ' ' + '<%= j params[:year] %>' + ' <span class="caret"></span>');	
+	$('button#dateFilter').html(monthsLong[parseInt('<%= j params[:month] %>')-1] + ' ' + '<%= j params[:year] %>' + ' <span class="caret"></span>');
 }
 
 
