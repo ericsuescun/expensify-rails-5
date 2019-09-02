@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require turbolinks
+//= require raphael
+//= require morris
 //= require_tree .
 //= indexFilters
 //= modalClose
