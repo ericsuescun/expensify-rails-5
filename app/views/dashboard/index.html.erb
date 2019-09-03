@@ -32,7 +32,8 @@
       <div class="panel panel-default">
         <div class="panel-heading">Por Día</div>
         <div class="panel-body">
-          <div id="daily-expenses-chart" style="height: 250px;"></div>
+          <!-- <div id="daily-expenses-chart" style="height: 250px;"></div> -->
+          <%= content_tag :div, "", "style": "height: 250px;", id: "daily-expenses-chart", data: {expenses: daily_data} %>
         </div>
       </div>
     </div>
@@ -43,7 +44,8 @@
       <div class="panel panel-default">
         <div class="panel-heading">Por Categoría</div>
         <div class="panel-body">
-          <div id="category-chart" style="height: 250px;"></div>
+          <!-- <div id="category-chart" style="height: 250px;"></div> -->
+          <%= content_tag :div, "", "style": "height: 250px;", id: "category-chart", data: {expenses: category_data} %>
         </div>
       </div>
     </div>
