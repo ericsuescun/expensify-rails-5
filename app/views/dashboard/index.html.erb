@@ -23,7 +23,8 @@
       <div class="panel panel-default">
         <div class="panel-heading">Últimos 6 Meses</div>
         <div class="panel-body">
-          <div id="expenses-chart" style="height: 250px;"></div>
+          <!-- <div id="expenses-chart" style="height: 250px;"></div> -->
+          <%= content_tag :div, "", "style": "height: 250px;", id: "expenses-chart", data: {expenses: monthly_data} %>
         </div>
       </div>
     </div>
