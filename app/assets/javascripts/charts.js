@@ -53,6 +53,10 @@ function charts() {
 	  // chart.
 	  labels: ['Actual', 'Last'],
 
+	  fillOpacity: 0.6,
+
+	  behaveLikeLine: true,
+
 	  parseTime: false
 	});
 
