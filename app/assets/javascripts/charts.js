@@ -1,63 +1,63 @@
 function charts() {
 	new Morris.Bar({
-	  // ID of the element in which to draw the chart.
-	  element: 'expenses-chart',
-	  // Chart data records -- each entry in this array corresponds to a point on
-	  // the chart.
-	  data: $('#expenses-chart').data('expenses'),
-	  // The name of the data record attribute that contains x-values.
-	  xkey: 'x',
-	  // A list of names of data record attributes that contain y-values.
-	  ykeys: ['purchase', 'withdrawal'],
-	  // Labels for the ykeys -- will be displayed when you hover over the
-	  // chart.
-	  labels: ['Purchase', 'Withdrawal'],
+		// ID of the element in which to draw the chart.
+		element: 'expenses-chart',
+		// Chart data records -- each entry in this array corresponds to a point on
+		// the chart.
+		data: $('#expenses-chart').data('expenses'),
+		// The name of the data record attribute that contains x-values.
+		xkey: 'x',
+		// A list of names of data record attributes that contain y-values.
+		ykeys: ['purchase', 'withdrawal'],
+		// Labels for the ykeys -- will be displayed when you hover over the
+		// chart.
+		labels: ['Purchase', 'Withdrawal'],
 
-	  stacked: true
+		stacked: true
 	});
 
 	new Morris.Bar({
-	  // ID of the element in which to draw the chart.
-	  element: 'daily-expenses-chart',
-	  // Chart data records -- each entry in this array corresponds to a point on
-	  // the chart.
-	  data: $('#daily-expenses-chart').data('expenses'),
-	  // The name of the data record attribute that contains x-values.
-	  xkey: 'x',
-	  // A list of names of data record attributes that contain y-values.
-	  ykeys: ['purchase', 'withdrawal'],
-	  // Labels for the ykeys -- will be displayed when you hover over the
-	  // chart.
-	  labels: ['Purchase', 'Whitdrawal']
+		// ID of the element in which to draw the chart.
+		element: 'daily-expenses-chart',
+		// Chart data records -- each entry in this array corresponds to a point on
+		// the chart.
+		data: $('#daily-expenses-chart').data('expenses'),
+		// The name of the data record attribute that contains x-values.
+		xkey: 'x',
+		// A list of names of data record attributes that contain y-values.
+		ykeys: ['purchase', 'withdrawal'],
+		// Labels for the ykeys -- will be displayed when you hover over the
+		// chart.
+		labels: ['Purchase', 'Whitdrawal']
 	});
 
 	new Morris.Donut({
-	  // ID of the element in which to draw the chart.
-	  element: 'category-chart',
-	  // Chart data records -- each entry in this array corresponds to a point on
-	  // the chart.
-	  data: $('#category-chart').data('expenses')
+		// ID of the element in which to draw the chart.
+		element: 'category-chart',
+		// Chart data records -- each entry in this array corresponds to a point on
+		// the chart.
+		data: $('#category-chart').data('expenses')
 	});
 
 	new Morris.Area({
-	  // ID of the element in which to draw the chart.
-	  element: 'month-acc',
-	  // Chart data records -- each entry in this array corresponds to a point on
-	  // the chart.
-	  data: $('#month-acc').data('expenses'),
-	  // The name of the data record attribute that contains x-values.
-	  xkey: 'x',
-	  // A list of names of data record attributes that contain y-values.
-	  ykeys: ['actual', 'last'],
-	  // Labels for the ykeys -- will be displayed when you hover over the
-	  // chart.
-	  labels: ['Actual', 'Last'],
+		// ID of the element in which to draw the chart.
+		element: 'month-acc',
+		// Chart data records -- each entry in this array corresponds to a point on
+		// the chart.
+		data: $('#month-acc').data('expenses'),
+		// The name of the data record attribute that contains x-values.
+		xkey: 'x',
+		// A list of names of data record attributes that contain y-values.
+		ykeys: ['actual', 'last'],
+		// Labels for the ykeys -- will be displayed when you hover over the
+		// chart.
+		labels: ['Actual', 'Last'],
 
-	  fillOpacity: 0.6,
+		fillOpacity: 0.6,
 
-	  behaveLikeLine: true,
-
-	  parseTime: false
+		behaveLikeLine: true,
+		
+		parseTime: false
 	});
 
 }
