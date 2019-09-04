@@ -11,7 +11,7 @@ function charts() {
 	  ykeys: ['purchase', 'withdrawal'],
 	  // Labels for the ykeys -- will be displayed when you hover over the
 	  // chart.
-	  labels: ['purchase', 'withdrawal'],
+	  labels: ['Purchase', 'Withdrawal'],
 
 	  stacked: true
 	});

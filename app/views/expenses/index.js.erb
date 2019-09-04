@@ -10,6 +10,9 @@ function refresh() {
 	$('#filters-bar').remove();
 	$('div#filters').prepend('<%= j render "filters" %>');
 
+	$('nav#menu').remove();
+	$('body').prepend('<%= j render "expenses/menu" %>');
+
 	$('h4').removeClass('open');
 	var monthsLong = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 	$('button#dateFilter').html(monthsLong[parseInt('<%= j params[:month] %>')-1] + ' ' + '<%= j params[:year] %>' + ' <span class="caret"></span>');

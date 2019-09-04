@@ -1,0 +1,27 @@
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation" id="menu">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Expensify</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <% if params[:year].blank? && params[:month].blank? %>
+          <li class="<%= 'active' if @tab == :dashboard %>"><%= link_to "Dashboard", dashboard_index_path  + '?month=' + Date.today.month.to_s + '&year=' + Date.today.year.to_s %></li>
+        <% else %>
+          <li class="<%= 'active' if @tab == :dashboard %>"><%= link_to "Dashboard", dashboard_index_path  + '?month=' + params[:month] + '&year=' + params[:year] %></li>
+        <% end %>
+        <!-- <li class="<%= 'active' if @tab == :expenses %>"><%= link_to "Expenses", expenses_path %></li> -->
+        <li class="<%= 'active' if @tab == :expenses %>"><%= link_to "Expenses", expenses_path + '?month=' + Date.today.month.to_s + '&year=' + Date.today.year.to_s %></li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
