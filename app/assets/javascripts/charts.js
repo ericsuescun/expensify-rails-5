@@ -11,7 +11,7 @@ function charts() {
 	  ykeys: ['purchase', 'withdrawal'],
 	  // Labels for the ykeys -- will be displayed when you hover over the
 	  // chart.
-	  labels: ['Expense'],
+	  labels: ['purchase', 'withdrawal'],
 
 	  stacked: true
 	});
@@ -28,8 +28,7 @@ function charts() {
 	  ykeys: ['purchase', 'withdrawal'],
 	  // Labels for the ykeys -- will be displayed when you hover over the
 	  // chart.
-	  labels: ['Expense'],
-
+	  labels: ['Purchase', 'Whitdrawal']
 	});
 
 	new Morris.Donut({
@@ -37,6 +36,24 @@ function charts() {
 	  element: 'category-chart',
 	  // Chart data records -- each entry in this array corresponds to a point on
 	  // the chart.
-	  data: $('#category-chart').data('expenses'),
+	  data: $('#category-chart').data('expenses')
 	});
+
+	new Morris.Area({
+	  // ID of the element in which to draw the chart.
+	  element: 'month-acc',
+	  // Chart data records -- each entry in this array corresponds to a point on
+	  // the chart.
+	  data: $('#month-acc').data('expenses'),
+	  // The name of the data record attribute that contains x-values.
+	  xkey: 'x',
+	  // A list of names of data record attributes that contain y-values.
+	  ykeys: ['actual', 'last'],
+	  // Labels for the ykeys -- will be displayed when you hover over the
+	  // chart.
+	  labels: ['Actual', 'Last'],
+
+	  parseTime: false
+	});
+
 }

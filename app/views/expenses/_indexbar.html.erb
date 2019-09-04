@@ -9,7 +9,7 @@
     <div class="summary-label">Transactions</div>
   </div>
   <div class="summary-box col-md-4 text-center">
-    <div class="summary-value"><%= number_to_currency(@expenses.average(:amount), precision: 0, delimiter: ',') %></div>
+    <div class="summary-value"><%= number_to_currency(@expenses.average(:amount), precision: 0, delimiter: ',') || 0 %></div>
     <div class="summary-label">Average</div>
   </div>
 </div>
