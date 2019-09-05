@@ -20,7 +20,11 @@
       <% if category == params[:category] %>
         <%= link_to category.capitalize, removeparam("#{request.protocol}#{request.host_with_port}#{request.fullpath}", '&category=' + category), remote: true, class: "list-group-item category active" %>
       <% else %>
-        <%= link_to category.capitalize, "#{request.protocol}#{request.host_with_port}#{request.fullpath}" + '&category=' + category, remote: true, class: "list-group-item category" %>
+        <% if "#{request.protocol}#{request.host_with_port}#{request.fullpath}".include? ('&category=') %>
+          <%= link_to category.capitalize, removeparam("#{request.protocol}#{request.host_with_port}#{request.fullpath}", '&category=' + category), remote: true, class: "list-group-item category" %>
+        <% else %>
+          <%= link_to category.capitalize, "#{request.protocol}#{request.host_with_port}#{request.fullpath}" + '&category=' + category, remote: true, class: "list-group-item category" %>
+        <% end %>
       <% end %>
     <% end%>
   </div>
