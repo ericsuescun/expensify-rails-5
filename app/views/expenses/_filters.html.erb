@@ -2,28 +2,36 @@
   <h4 class="filter-header">Transaction Type <span>Choose to filter</span></h4>
   <div class="list-group filter-type extype">
     <% Expense.extypes.each do |extype, value| %>
-      <% if extype == params[:extype] %>
-        <%= link_to extype.capitalize, removeparam("#{request.protocol}#{request.host_with_port}#{request.fullpath}", '&extype=' + extype), remote: true, class: "list-group-item extype active" %>
-      <% else %>
-        <% if "#{request.protocol}#{request.host_with_port}#{request.fullpath}".include? ('&extype=') %>
-          <%= link_to extype.capitalize, removeparam("#{request.protocol}#{request.host_with_port}#{request.fullpath}", '&extype=' + extype), remote: true, class: "list-group-item extype" %>
+      <% if params[:extype] == extype %>
+        <% if params[:category].blank? %>
+          <%= link_to extype.capitalize, "#{request.protocol}#{request.host_with_port}#{request.path}" + "?month=" + params[:month] + "&year=" + params[:year], remote: true, class: "list-group-item extype active" %>
         <% else %>
-          <%= link_to extype.capitalize, "#{request.protocol}#{request.host_with_port}#{request.fullpath}" + '&extype=' + extype, remote: true, class: "list-group-item extype" %>
-        <% end%>
-      <% end%>
+          <%= link_to extype.capitalize, "#{request.protocol}#{request.host_with_port}#{request.path}" + "?month=" + params[:month] + "&year=" + params[:year] + '&category=' + params[:category], remote: true, class: "list-group-item extype active" %>
+        <% end %>
+      <% else %>
+        <% if params[:category].blank? %>
+          <%= link_to extype.capitalize, "#{request.protocol}#{request.host_with_port}#{request.path}" + "?month=" + params[:month] + "&year=" + params[:year] + '&extype=' + extype, remote: true, class: "list-group-item extype" %>
+        <% else %>
+          <%= link_to extype.capitalize, "#{request.protocol}#{request.host_with_port}#{request.path}" + "?month=" + params[:month] + "&year=" + params[:year] + '&extype=' + extype + '&category=' + params[:category], remote: true, class: "list-group-item extype" %>
+        <% end %>
+      <% end %>
     <% end%>
   </div>
 
   <h4 class="filter-header">Categoría <span>Selecciona para filtrar</span></h4>
   <div class="list-group filter-type category">
     <% Expense.categories.each do |category, value| %>
-      <% if category == params[:category] %>
-        <%= link_to category.capitalize, removeparam("#{request.protocol}#{request.host_with_port}#{request.fullpath}", '&category=' + category), remote: true, class: "list-group-item category active" %>
-      <% else %>
-        <% if "#{request.protocol}#{request.host_with_port}#{request.fullpath}".include? ('&category=') %>
-          <%= link_to category.capitalize, removeparam("#{request.protocol}#{request.host_with_port}#{request.fullpath}", '&category=' + category), remote: true, class: "list-group-item category" %>
+      <% if params[:category] == category %>
+        <% if params[:extype].blank? %>
+          <%= link_to category.capitalize, "#{request.protocol}#{request.host_with_port}#{request.path}" + "?month=" + params[:month] + "&year=" + params[:year], remote: true, class: "list-group-item category active" %>
         <% else %>
-          <%= link_to category.capitalize, "#{request.protocol}#{request.host_with_port}#{request.fullpath}" + '&category=' + category, remote: true, class: "list-group-item category" %>
+          <%= link_to category.capitalize, "#{request.protocol}#{request.host_with_port}#{request.path}" + "?month=" + params[:month] + "&year=" + params[:year] + '&extype=' + params[:extype], remote: true, class: "list-group-item category active" %>
+        <% end %>
+      <% else %>
+        <% if params[:extype].blank? %>
+          <%= link_to category.capitalize, "#{request.protocol}#{request.host_with_port}#{request.path}" + "?month=" + params[:month] + "&year=" + params[:year] + '&category=' + category, remote: true, class: "list-group-item category" %>
+        <% else %>
+          <%= link_to category.capitalize, "#{request.protocol}#{request.host_with_port}#{request.path}" + "?month=" + params[:month] + "&year=" + params[:year] + '&category=' + category + '&extype=' + params[:extype], remote: true, class: "list-group-item category" %>
         <% end %>
       <% end %>
     <% end%>
