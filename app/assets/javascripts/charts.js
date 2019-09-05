@@ -1,16 +1,21 @@
+function capString(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 function charts() {
 
-	a = $('div#expenses-chart').attr('data-expenses');
-	a = a.slice(0, -1);
-	a = a.substring(1);
-	a = a.split("\},\{");
+	a = $('div#expenses-chart').attr('data-expenses').slice(0, -1).substring(1).split("\},\{");
 	b = a[0].split(",\"");
 	r = [];
+	p = [];
 	c = b[2].split("\":",1);
 	for(var i=1; i <= b.length-1; i++) {
 		c = b[i].split("\":",1);
 		
 		r.push(c[0]);
+	}
+	for(var i=0; i <= r.length-1; i++) {
+		p[i] = capString(r[i]);
 	}
 
 
@@ -28,7 +33,7 @@ function charts() {
 		// ykeys: [ 'purchase', 'withdrawal', 'transfer', 'payment', 'check', 'credit_card1', 'credit_card2', 'credit_card3' ],
 		// Labels for the ykeys -- will be displayed when you hover over the
 		// chart.
-		labels: r,
+		labels: p,
 		// labels: [ 'Purchase', 'Withdrawal', 'Transfer', 'Payment', 'Check', 'Credit card 1', 'Credit card 2', 'Credit card 3' ],
 
 		hideHover: true,
@@ -49,7 +54,7 @@ function charts() {
 		ykeys: r,
 		// Labels for the ykeys -- will be displayed when you hover over the
 		// chart.
-		labels: r,
+		labels: p,
 		stacked: true
 	});
 

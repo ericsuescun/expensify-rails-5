@@ -38,7 +38,7 @@ module DashboardHelper
     		row = {}
     		row[:x] = d.strftime('%d')
     		Expense.extypes.each do |extype, n|
-    			row[extype.to_s] = Expense.where({exdate: d, extype: extype }).sum(:amount)
+    			row[extype.to_s] = Expense.where({exdate: d, extype: extype }).sum(:amount) || 0
     		end
     		@data.push(row)
     	end
@@ -58,7 +58,7 @@ module DashboardHelper
 		Expense.categories.each do |category, n|
 			row = {}
 			row[:label] = category
-			row[:value] = Expense.where({exdate: date_range, category: category }).sum(:amount)
+			row[:value] = Expense.where({exdate: date_range, category: category }).sum(:amount) || 0
 			@data.push(row)
 		end
     	return @data
@@ -79,8 +79,8 @@ module DashboardHelper
     	date_range.each do |d, n|
     		row = {}
     		row['x'] = d.strftime('%d')
-    		a = a + Expense.where({ exdate: d }).sum(:amount)
-    		b = b + Expense.where({ exdate: (d - 1.month) }).sum(:amount)
+    		a = a + Expense.where({ exdate: d }).sum(:amount) || 0
+    		b = b + Expense.where({ exdate: (d - 1.month) }).sum(:amount) || 0
     		row['actual'] = a
     		row['last'] = b
     		@data.push(row)
