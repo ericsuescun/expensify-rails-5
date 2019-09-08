@@ -2,38 +2,48 @@
   <h4 class="filter-header">Transaction Type <span>Choose to filter</span></h4>
   <div class="list-group filter-type extype">
     <% Expense.extypes.each do |extype, value| %>
-      <% if params[:extype] == extype %>
-        <% if params[:category].blank? %>
-          <%= link_to extype.capitalize, "#{request.protocol}#{request.host_with_port}#{request.path}" + "?month=" + params[:month] + "&year=" + params[:year], remote: true, class: "list-group-item extype active" %>
-        <% else %>
-          <%= link_to extype.capitalize, "#{request.protocol}#{request.host_with_port}#{request.path}" + "?month=" + params[:month] + "&year=" + params[:year] + '&category=' + params[:category], remote: true, class: "list-group-item extype active" %>
-        <% end %>
+      <% if params[:extype].blank? && params[:category].blank? %>
+        <%= link_to extype.capitalize, "#{request.protocol}#{request.host_with_port}#{request.path}" + "?month=" + Date.today.month.to_s + "&year=" + Date.today.year.to_s + '&extype=' + extype, remote: true, class: "list-group-item extype" %>
       <% else %>
-        <% if params[:category].blank? %>
-          <%= link_to extype.capitalize, "#{request.protocol}#{request.host_with_port}#{request.path}" + "?month=" + params[:month] + "&year=" + params[:year] + '&extype=' + extype, remote: true, class: "list-group-item extype" %>
+        <% if params[:extype] == extype %>
+          <% if params[:category].blank? %>
+            <%= link_to extype.capitalize, "#{request.protocol}#{request.host_with_port}#{request.path}" + "?month=" + params[:month] + "&year=" + params[:year], remote: true, class: "list-group-item extype active" %>
+          <% else %>
+            <%= link_to extype.capitalize, "#{request.protocol}#{request.host_with_port}#{request.path}" + "?month=" + params[:month] + "&year=" + params[:year] + '&category=' + params[:category], remote: true, class: "list-group-item extype active" %>
+          <% end %>
         <% else %>
-          <%= link_to extype.capitalize, "#{request.protocol}#{request.host_with_port}#{request.path}" + "?month=" + params[:month] + "&year=" + params[:year] + '&extype=' + extype + '&category=' + params[:category], remote: true, class: "list-group-item extype" %>
+          <% if params[:category].blank? %>
+            <%= link_to extype.capitalize, "#{request.protocol}#{request.host_with_port}#{request.path}" + "?month=" + params[:month] + "&year=" + params[:year] + '&extype=' + extype, remote: true, class: "list-group-item extype" %>
+          <% else %>
+            <%= link_to extype.capitalize, "#{request.protocol}#{request.host_with_port}#{request.path}" + "?month=" + params[:month] + "&year=" + params[:year] + '&extype=' + extype + '&category=' + params[:category], remote: true, class: "list-group-item extype" %>
+          <% end %>
         <% end %>
       <% end %>
+      
     <% end%>
   </div>
 
   <h4 class="filter-header">Categoría <span>Selecciona para filtrar</span></h4>
   <div class="list-group filter-type category">
     <% Expense.categories.each do |category, value| %>
-      <% if params[:category] == category %>
-        <% if params[:extype].blank? %>
-          <%= link_to category.capitalize, "#{request.protocol}#{request.host_with_port}#{request.path}" + "?month=" + params[:month] + "&year=" + params[:year], remote: true, class: "list-group-item category active" %>
-        <% else %>
-          <%= link_to category.capitalize, "#{request.protocol}#{request.host_with_port}#{request.path}" + "?month=" + params[:month] + "&year=" + params[:year] + '&extype=' + params[:extype], remote: true, class: "list-group-item category active" %>
-        <% end %>
+      <% if params[:extype].blank? && params[:category].blank? %>
+        <%= link_to category.capitalize, "#{request.protocol}#{request.host_with_port}#{request.path}" + "?month=" + Date.today.month.to_s + "&year=" + Date.today.year.to_s + '&category=' + category, remote: true, class: "list-group-item category" %>
       <% else %>
-        <% if params[:extype].blank? %>
-          <%= link_to category.capitalize, "#{request.protocol}#{request.host_with_port}#{request.path}" + "?month=" + params[:month] + "&year=" + params[:year] + '&category=' + category, remote: true, class: "list-group-item category" %>
+        <% if params[:category] == category %>
+          <% if params[:extype].blank? %>
+            <%= link_to category.capitalize, "#{request.protocol}#{request.host_with_port}#{request.path}" + "?month=" + params[:month] + "&year=" + params[:year], remote: true, class: "list-group-item category active" %>
+          <% else %>
+            <%= link_to category.capitalize, "#{request.protocol}#{request.host_with_port}#{request.path}" + "?month=" + params[:month] + "&year=" + params[:year] + '&extype=' + params[:extype], remote: true, class: "list-group-item category active" %>
+          <% end %>
         <% else %>
-          <%= link_to category.capitalize, "#{request.protocol}#{request.host_with_port}#{request.path}" + "?month=" + params[:month] + "&year=" + params[:year] + '&category=' + category + '&extype=' + params[:extype], remote: true, class: "list-group-item category" %>
+          <% if params[:extype].blank? %>
+            <%= link_to category.capitalize, "#{request.protocol}#{request.host_with_port}#{request.path}" + "?month=" + params[:month] + "&year=" + params[:year] + '&category=' + category, remote: true, class: "list-group-item category" %>
+          <% else %>
+            <%= link_to category.capitalize, "#{request.protocol}#{request.host_with_port}#{request.path}" + "?month=" + params[:month] + "&year=" + params[:year] + '&category=' + category + '&extype=' + params[:extype], remote: true, class: "list-group-item category" %>
+          <% end %>
         <% end %>
-      <% end %>
+    <% end %>
+      
     <% end%>
   </div>
 </div>
