@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ExpensesControllerTest" skipped="0" failures="0" errors="0" tests="9" assertions="17" time="0.6734839999116957">
-  <testcase name="test_Should_get_Expenses_by_month,_year_and_extype_in_JS" classname="ExpensesControllerTest" assertions="2" time="0.18443699995987117">
+<testsuite name="ExpensesControllerTest" skipped="0" failures="0" errors="0" tests="11" assertions="21" time="0.7435040000127628">
+  <testcase name="test_Should_get_Expenses_by_month,_year,_category_and_extype_in_HTML" classname="ExpensesControllerTest" assertions="2" time="0.04694800003198907">
   </testcase>
-  <testcase name="test_Should_get_Expenses_by_month,_year,_category_and_extype_in_HTML" classname="ExpensesControllerTest" assertions="2" time="0.03504099999554455">
+  <testcase name="test_Should_create_an_expense" classname="ExpensesControllerTest" assertions="1" time="0.048412000003736466">
   </testcase>
-  <testcase name="test_Should_get_Expenses_by_month_and_year_in_JS" classname="ExpensesControllerTest" assertions="2" time="0.09868199995253235">
+  <testcase name="test_Should_get_Expenses_by_month,_year_and_category_in_JS" classname="ExpensesControllerTest" assertions="2" time="0.12334799999371171">
   </testcase>
-  <testcase name="test_Should_get_Expenses_by_month,_year_and_extype_in_HTML" classname="ExpensesControllerTest" assertions="2" time="0.05778799997642636">
+  <testcase name="test_Should_get_Expenses_by_month,_year,_category_and_extype_in_JS" classname="ExpensesControllerTest" assertions="2" time="0.12662799999816343">
   </testcase>
-  <testcase name="test_Should_create_an_expense" classname="ExpensesControllerTest" assertions="1" time="0.052829000051133335">
+  <testcase name="test_Should_get_Expenses_by_month,_year_and_extype_in_HTML" classname="ExpensesControllerTest" assertions="2" time="0.03723600000375882">
   </testcase>
-  <testcase name="test_Should_get_Expenses_by_month_and_year_in_HTML" classname="ExpensesControllerTest" assertions="2" time="0.04031299997586757">
+  <testcase name="test_Should_get_Expenses_by_month,_year_and_category_in_HTML" classname="ExpensesControllerTest" assertions="2" time="0.03644599998369813">
   </testcase>
-  <testcase name="test_Should_get_Expenses_index_whit_no_params_at_all" classname="ExpensesControllerTest" assertions="2" time="0.04177399998297915">
+  <testcase name="test_Should_get_Expenses_by_month,_year_and_extype_in_JS" classname="ExpensesControllerTest" assertions="2" time="0.10145600000396371">
   </testcase>
-  <testcase name="test_should_filter_by_extype" classname="ExpensesControllerTest" assertions="2" time="0.040121000027284026">
+  <testcase name="test_Should_get_Expenses_index_whit_no_params_at_all" classname="ExpensesControllerTest" assertions="2" time="0.03220700001111254">
   </testcase>
-  <testcase name="test_Should_get_Expenses_by_month,_year,_category_and_extype_in_JS" classname="ExpensesControllerTest" assertions="2" time="0.1224989999900572">
+  <testcase name="test_should_filter_by_extype" classname="ExpensesControllerTest" assertions="2" time="0.05350699997507036">
+  </testcase>
+  <testcase name="test_Should_get_Expenses_by_month_and_year_in_JS" classname="ExpensesControllerTest" assertions="2" time="0.09751900000264868">
+  </testcase>
+  <testcase name="test_Should_get_Expenses_by_month_and_year_in_HTML" classname="ExpensesControllerTest" assertions="2" time="0.03979700000490993">
   </testcase>
 </testsuite>

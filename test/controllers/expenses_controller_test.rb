@@ -24,6 +24,12 @@ class ExpensesControllerTest < ActionDispatch::IntegrationTest
 		assert_not_nil assigns(:expenses)
 	end
 
+	test "Should get Expenses by month, year and category in HTML" do
+		get expenses_path, {params: {month: 3, year: 2019, category: 0}}
+		assert_response :success
+		assert_not_nil assigns(:expenses)
+	end
+
 	test "Should get Expenses by month, year, category and extype in HTML" do
 		get expenses_path, {params: {month: 3, year: 2019, extype: 0, category: 0}}
 		assert_response :success
@@ -38,6 +44,12 @@ class ExpensesControllerTest < ActionDispatch::IntegrationTest
 
 	test "Should get Expenses by month, year and extype in JS" do
 		get expenses_path, params: { expense: {month: 3, year: 2019, extype: 0, format: 'js' }}, xhr: true
+		assert_response :success
+		assert_not_nil assigns(:expenses)
+	end
+
+	test "Should get Expenses by month, year and category in JS" do
+		get expenses_path, params: { expense: {month: 3, year: 2019, category: 0, format: 'js' }}, xhr: true
 		assert_response :success
 		assert_not_nil assigns(:expenses)
 	end
