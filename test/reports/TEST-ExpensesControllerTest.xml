@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ExpensesControllerTest" skipped="0" failures="0" errors="1" tests="1" assertions="0" time="0.0035439999774098396">
-  <testcase name="test_Should_get_Expenses" classname="ExpensesControllerTest" assertions="0" time="0.0035439999774098396">
-    <error type="test_Should_get_Expenses" message="ActionController::RoutingError: No route matches [GET] &quot;/expenses_path&quot;...">
-Failure:
-test_Should_get_Expenses(ExpensesControllerTest) [/Users/ericsuescun/.rvm/gems/ruby-2.5.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/debug_exceptions.rb:53]:
-ActionController::RoutingError: No route matches [GET] "/expenses_path"
-    test/controllers/expenses_controller_test.rb:5:in `block in &lt;class:ExpensesControllerTest&gt;'
-    </error>
+<testsuite name="ExpensesControllerTest" skipped="0" failures="0" errors="0" tests="3" assertions="5" time="2.266585999983363">
+  <testcase name="test_Should_create_an_expense" classname="ExpensesControllerTest" assertions="1" time="1.869362999976147">
+  </testcase>
+  <testcase name="test_Should_get_Expenes_by_month" classname="ExpensesControllerTest" assertions="2" time="0.34374399995431304">
+  </testcase>
+  <testcase name="test_Should_get_Expenses_index" classname="ExpensesControllerTest" assertions="2" time="0.05347900005290285">
   </testcase>
 </testsuite>

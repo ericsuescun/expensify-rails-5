@@ -11,5 +11,19 @@ two:
   extype: 1
   exdate: 2019-07-30
   concept: MyText
+  category: 3
+  amount: 1
+
+three:
+  extype: 2
+  exdate: 2019-03-30
+  concept: MyText
+  category: 3
+  amount: 1
+
+four:
+  extype: 2
+  exdate: 2019-03-30
+  concept: MyText
   category: 1
   amount: 1
