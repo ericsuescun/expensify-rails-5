@@ -6,23 +6,32 @@
       <div class="row" style="margin-top: 20px;">
         <div class="col-md-12">
           <%= link_to new_expense_path, remote: true, class: "btn btn-success pull-left" do %>
-            <span class="glyphicon glyphicon-plus"></span> New Expense
+          <span class="glyphicon glyphicon-plus"></span> New Expense
           <% end %>
           <h4 class="dropdown pull-right">
             <% if params[:year].blank? && params[:month].blank? %>
               <button id="dateFilter" type="button" class="dropdown-toggle btn btn-link" data-toggle="dropdown"><%= Date.today.strftime('%B')%> <%= Date.today.year%> <span class="caret"></span></button>
+              <ul class="dropdown-menu" role="menu">
+                <% for n in 0..12 do %>
+                  <li role="presentation" id="<%= n.month.ago %>">
+                    <%= link_to expenses_path + '?month=' + n.month.ago.strftime('%-m') + '&year=' + n.month.ago.year.to_s, class: "year-months", remote: true, id: n.month.ago do %>
+                    <%= n.month.ago.strftime('%B')%> <%= n.month.ago.year %>
+                    <% end %>
+                  </li>
+                <% end %>
+              </ul>
             <% else %>
               <button id="dateFilter" type="button" class="dropdown-toggle btn btn-link" data-toggle="dropdown"><%= Date.new(params[:year].to_i,params[:month].to_i,1).strftime('%B')%> <%= params[:year]%> <span class="caret"></span></button>
+              <ul class="dropdown-menu" role="menu">
+                <% for n in 0..12 do %>
+                  <li role="presentation" id="<%= n.month.ago %>">
+                    <%= link_to expenses_path + '?month=' + (Date.new(params[:year].to_i,params[:month].to_i,1) - n.month).strftime('%-m') + '&year=' + (Date.new(params[:year].to_i,params[:month].to_i,1) - n.month).year.to_s, class: "year-months", remote: true, id: (Date.new(params[:year].to_i,params[:month].to_i,1) - n.month) do %>
+                    <%= (Date.new(params[:year].to_i,params[:month].to_i,1) - n.month).strftime('%B')%> <%= (Date.new(params[:year].to_i,params[:month].to_i,1) - n.month).year %>
+                    <% end %>
+                  </li>
+                <% end %>
+              </ul>
             <% end %>
-            <ul class="dropdown-menu" role="menu">
-              <% for n in 0..11 do %>
-                <li role="presentation" id="<%= n.month.ago %>">
-                  <%= link_to expenses_path + '?month=' + n.month.ago.strftime('%-m') + '&year=' + n.month.ago.year.to_s, class: "year-months", remote: true, id: n.month.ago do %>
-                    <%= n.month.ago.strftime('%B')%> <%= n.month.ago.year %>
-                  <% end %>
-                </li>
-              <% end %>
-            </ul>
           </h4>
         </div>
       </div>
