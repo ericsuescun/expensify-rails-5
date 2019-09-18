@@ -14,7 +14,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <!-- <li class="<%= 'active' if @tab == :dashboard %>"><%= link_to "Dashboard", root_path %></li> -->
-        <li class="<%= 'active' if @tab == :dashboard %>"><%= link_to "Dashboard", dashboard_index_path  + '?month=' + Date.today.month.to_s + '&year=' + Date.today.year.to_s %></li>
+        <li class="<%= 'active' if @tab == :dashboard %>"><%= link_to "Dashboard", dashboard_index_path  + '?month=' + Date.today.month.to_s + '&year=' + Date.today.year.to_s, id: 'expenses_select' %></li>
         <!-- <li class="<%= 'active' if @tab == :expenses %>"><%= link_to "Expenses", expenses_path %></li> -->
         <li class="<%= 'active' if @tab == :expenses %>"><%= link_to "Expenses", expenses_path + '?month=' + Date.today.month.to_s + '&year=' + Date.today.year.to_s %></li>
 

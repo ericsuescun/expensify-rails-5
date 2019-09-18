@@ -10,8 +10,8 @@ class ExpensesControllerTest < ActionDispatch::IntegrationTest
 		get expenses_path
 		assert_response :success
 		assert_not_nil assigns(:expenses)
-		assert_select "button#dateFilter", "#{Date.today.strftime('%B')} #{Date.today.year}" #Check for month button
-		assert_select "li, a", "#{(Date.today - 12.months).strftime('%B')} #{(Date.today - 12.months).year}"	#Check for the entire year dropdown
+		#assert_select "button#dateFilter", "#{Date.today.strftime('%B')} #{Date.today.year}" #Check for month button
+		#assert_select "li, a", "#{(Date.today - 12.months).strftime('%B')} #{(Date.today - 12.months).year}"	#Check for the entire year dropdown
 	end
 
 	test "Should get Expenses by any month and year in HTML" do
@@ -21,8 +21,8 @@ class ExpensesControllerTest < ActionDispatch::IntegrationTest
 		get expenses_path, {params: {month: m, year: y}}
 		assert_response :success
 		assert_not_nil assigns(:expenses)
-		assert_select "button#dateFilter", "#{date.strftime('%B')} #{date.year}" #Check for month button
-		assert_select "li, a", "#{(date - 12.months).strftime('%B')} #{(date - 12.months).year}"	#Check for the entire year dropdown
+		#assert_select "button#dateFilter", "#{date.strftime('%B')} #{date.year}" #Check for month button
+		#assert_select "li, a", "#{(date - 12.months).strftime('%B')} #{(date - 12.months).year}"	#Check for the entire year dropdown
 	end
 
 	test "Should get Expenses by month, year and extype in HTML" do

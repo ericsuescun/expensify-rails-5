@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Features2Test" skipped="0" failures="0" errors="0" tests="5" assertions="0" time="11.572385000006761">
+  <testcase name="test_Display_all_dashboards" classname="Features2Test" assertions="0" time="7.1895929999882355">
+  </testcase>
+  <testcase name="test_Display_Expenses,_Indicators_and_Filters_views" classname="Features2Test" assertions="0" time="0.6091909999959171">
+  </testcase>
+  <testcase name="test_Display_specific_data_in_expenses_list" classname="Features2Test" assertions="0" time="0.4129809999722056">
+  </testcase>
+  <testcase name="test_Displays_actual_month_in_month_filter" classname="Features2Test" assertions="0" time="1.2116130000213161">
+  </testcase>
+  <testcase name="test_Can_generate_an_expense" classname="Features2Test" assertions="0" time="2.149007000029087">
+  </testcase>
+</testsuite>

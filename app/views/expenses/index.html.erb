@@ -5,8 +5,8 @@
       <%= render 'indexbar' %>
       <div class="row" style="margin-top: 20px;">
         <div class="col-md-12">
-          <%= link_to new_expense_path, remote: true, class: "btn btn-success pull-left" do %>
-          <span class="glyphicon glyphicon-plus"></span> New Expense
+          <%= link_to new_expense_path, id: 'new', remote: true, class: "btn btn-success pull-left" do %>
+            <span class="glyphicon glyphicon-plus"></span> New Expense
           <% end %>
           <h4 class="dropdown pull-right">
             <% if params[:year].blank? && params[:month].blank? %>
