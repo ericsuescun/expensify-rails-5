@@ -7,22 +7,20 @@ class ExpensesControllerTest < ActionDispatch::IntegrationTest
 	end
 
 	test "Should get actual date Expenses index (whit no params at all)" do
-		get expenses_path
-		assert_response :success
-		assert_not_nil assigns(:expenses)
-		#assert_select "button#dateFilter", "#{Date.today.strftime('%B')} #{Date.today.year}" #Check for month button
-		#assert_select "li, a", "#{(Date.today - 12.months).strftime('%B')} #{(Date.today - 12.months).year}"	#Check for the entire year dropdown
+		visit expenses_path
+		has_selector?('button#dateFilter')
+		has_text?("#{Date.today.strftime('%B')} #{Date.today.year}")
+		has_text?("#{(Date.today - 12.months).strftime('%B')} #{(Date.today - 12.months).year}")
+
 	end
 
 	test "Should get Expenses by any month and year in HTML" do
 		m = rand(1..12)
 		y = rand(1975..2075)
 		date = DateTime.new(y, m, 1)
-		get expenses_path, {params: {month: m, year: y}}
-		assert_response :success
-		assert_not_nil assigns(:expenses)
-		#assert_select "button#dateFilter", "#{date.strftime('%B')} #{date.year}" #Check for month button
-		#assert_select "li, a", "#{(date - 12.months).strftime('%B')} #{(date - 12.months).year}"	#Check for the entire year dropdown
+		visit('/expenses?month=' + m.to_s + '&year=' + y.to_s)
+		has_text?("#{date.strftime('%B')} #{date.year}")
+		has_text?("#{(date - 12.months).strftime('%B')} #{(date - 12.months).year}")
 	end
 
 	test "Should get Expenses by month, year and extype in HTML" do

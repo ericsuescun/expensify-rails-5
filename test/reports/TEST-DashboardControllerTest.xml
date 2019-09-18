@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="DashboardControllerTest" skipped="0" failures="0" errors="0" tests="2" assertions="2" time="0.6061400000471622">
-  <testcase name="test_Should_get_Dashboard_index_whit_no_params_at_all" classname="DashboardControllerTest" assertions="1" time="0.31779200001619756">
+<testsuite name="DashboardControllerTest" skipped="0" failures="0" errors="0" tests="2" assertions="2" time="2.890704000000369">
+  <testcase name="test_Should_get_Dashboard_with_month_and_year_in_HTML" classname="DashboardControllerTest" assertions="1" time="2.5892180000000735">
   </testcase>
-  <testcase name="test_Should_get_Dashboard_with_month_and_year_in_HTML" classname="DashboardControllerTest" assertions="1" time="0.2883480000309646">
+  <testcase name="test_Should_get_Dashboard_index_whit_no_params_at_all" classname="DashboardControllerTest" assertions="1" time="0.30148600000029546">
   </testcase>
 </testsuite>
