@@ -2,4 +2,6 @@ language: ruby
 rvm:
  - 2.5.1
 
- script:
+ dist: trusty
+
+ script: /expensify-rails-5/test/models/expense_test.rb
