@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ExpenseTest" skipped="0" failures="0" errors="0" tests="4" assertions="4" time="0.011852999916300178">
-  <testcase name="test_Expense_should_have_concept" classname="ExpenseTest" assertions="1" time="0.0026339999749325216">
+<testsuite name="ExpenseTest" skipped="0" failures="0" errors="0" tests="4" assertions="4" time="0.020841999968979508">
+  <testcase name="test_Expense_should_have_a_date" classname="ExpenseTest" assertions="1" time="0.014222999976482242">
   </testcase>
-  <testcase name="test_Expense_should_have_a_date" classname="ExpenseTest" assertions="1" time="0.0022619999945163727">
+  <testcase name="test_Expense_amount_should_be_integer" classname="ExpenseTest" assertions="1" time="0.0020420000073499978">
   </testcase>
-  <testcase name="test_Expense_should_have_an_amount" classname="ExpenseTest" assertions="1" time="0.003130999975837767">
+  <testcase name="test_Expense_should_have_an_amount" classname="ExpenseTest" assertions="1" time="0.0025809999788179994">
   </testcase>
-  <testcase name="test_Expense_amount_should_be_integer" classname="ExpenseTest" assertions="1" time="0.003825999971013516">
+  <testcase name="test_Expense_should_have_concept" classname="ExpenseTest" assertions="1" time="0.0019960000063292682">
   </testcase>
 </testsuite>

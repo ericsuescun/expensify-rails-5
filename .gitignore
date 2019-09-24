@@ -21,4 +21,4 @@
 .byebug_history
 
 #Ignore test results files
-test/reports
+test/reports/*.xml
