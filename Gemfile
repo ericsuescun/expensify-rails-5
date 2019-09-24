@@ -54,7 +54,7 @@ group :test do
   #The next 5 ones are brougth from the tutorial
   gem 'rails-controller-testing', '1.0.2'
 
-  gem 'rake', '~> 11.2', '>= 11.2.2'
+  gem 'rake'
 
 end
 
