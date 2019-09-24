@@ -20,5 +20,5 @@
 # Ignore Byebug command history file.
 .byebug_history
 
-#Ignore test results
-test/reports/*
+#Ignore test results files
+/test/reports/TEST.*
