@@ -9,4 +9,5 @@ before_install:
 install:
   - bundle install
 
- script: /expensify-rails-5/test/models/expense_test.rb
+ script:
+  - bundle exec rake build
