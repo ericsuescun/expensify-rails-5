@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Features2Test" skipped="0" failures="0" errors="0" tests="5" assertions="0" time="9.218276999949012">
-  <testcase name="test_Display_Expenses,_Indicators_and_Filters_views" classname="Features2Test" assertions="0" time="3.3714690000051633">
+<testsuite name="Features2Test" skipped="0" failures="0" errors="0" tests="5" assertions="0" time="11.259993000130635">
+  <testcase name="test_Displays_actual_month_in_month_filter" classname="Features2Test" assertions="0" time="6.639221000019461">
   </testcase>
-  <testcase name="test_Displays_actual_month_in_month_filter" classname="Features2Test" assertions="0" time="1.5715600000112318">
+  <testcase name="test_Can_generate_an_expense" classname="Features2Test" assertions="0" time="2.272034000023268">
   </testcase>
-  <testcase name="test_Display_specific_data_in_expenses_list" classname="Features2Test" assertions="0" time="0.5692759999656118">
+  <testcase name="test_Display_Expenses,_Indicators_and_Filters_views" classname="Features2Test" assertions="0" time="0.49897700001019984">
   </testcase>
-  <testcase name="test_Display_all_dashboards" classname="Features2Test" assertions="0" time="1.50281899998663">
+  <testcase name="test_Display_all_dashboards" classname="Features2Test" assertions="0" time="1.4096180000342429">
   </testcase>
-  <testcase name="test_Can_generate_an_expense" classname="Features2Test" assertions="0" time="2.203152999980375">
+  <testcase name="test_Display_specific_data_in_expenses_list" classname="Features2Test" assertions="0" time="0.44014300004346296">
   </testcase>
 </testsuite>
