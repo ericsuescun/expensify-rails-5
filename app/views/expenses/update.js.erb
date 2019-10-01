@@ -1,5 +1,22 @@
-modalClose();
-$('tbody#expenses-table-body tr').remove();
-$('tbody#expenses-table-body').append('<%= j render "expenses" %>');
-$('#index-bar').remove();
-$('div#index-data').prepend('<%= j render "indexbar" %>');
+// modalClose();
+// $('tbody#expenses-table-body tr').remove();
+// $('tbody#expenses-table-body').append('<%= j render "expenses" %>');
+// $('#index-bar').remove();
+// $('div#index-data').prepend('<%= j render "indexbar" %>');
+
+
+function refresh1() {
+	// console.log('Index JS');
+	modalClose();
+
+	$('tbody#expenses-table-body tr').remove();
+	$('tbody#expenses-table-body').append('<%= j render "expenses" %>');
+
+	$('#index-bar').remove();
+	$('div#index-filters').prepend('<%= j render "indexbar" %>');
+	$('body').append('<%= j render "ok-create" %>').show();
+
+}
+
+
+$(document).on('page:load', refresh1());
