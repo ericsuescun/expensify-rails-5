@@ -1,21 +1,22 @@
 
+<% if @expense.errors.empty? %>
+	function refresh2() {
+	  // console.log('Index JS');
+	  modalClose();
 
-function refresh2() {
-  // console.log('Index JS');
-  modalClose();
+	  $('tbody#expenses-table-body tr').remove();
+	  $('tbody#expenses-table-body').append('<%= j render "expenses" %>');
 
-  $('tbody#expenses-table-body tr').remove();
-  $('tbody#expenses-table-body').append('<%= j render "expenses" %>');
+	  $('#index-bar').remove();
+	  $('div#index-filters').prepend('<%= j render "indexbar" %>');
 
-  $('#index-bar').remove();
-  $('div#index-filters').prepend('<%= j render "indexbar" %>');
+	  $('#dateFilter').remove();
+	  $('h4.dropdown').prepend('<%= j render "dateFilter" %>');
 
-  $('#dateFilter').remove();
-  $('h4.dropdown').prepend('<%= j render "dateFilter" %>');
+	  $('body').prepend('<%= j render "ok-create" %>');
 
-  $('body').prepend('<%= j render "ok-create" %>');
-
-}
-
-
-$(document).on('page:load', refresh2());
+	}
+	$(document).on('page:load', refresh2());
+<% else %>
+	alert('<%= @expense.errors.full_messages[0] %>');
+<% end %>
