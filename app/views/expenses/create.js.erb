@@ -9,10 +9,11 @@ function refresh2() {
 
   $('#index-bar').remove();
   $('div#index-filters').prepend('<%= j render "indexbar" %>');
-  $('body').prepend('<%= j render "ok-create" %>');
 
   $('#dateFilter').remove();
   $('h4.dropdown').prepend('<%= j render "dateFilter" %>');
+
+  $('body').prepend('<%= j render "ok-create" %>');
 
 }
 

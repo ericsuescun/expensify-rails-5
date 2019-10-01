@@ -1,1 +1,2 @@
 $('tr#<%= @expense.id %>').remove();
+$('body').append('<%= j render "ok-deleted" %>').show();
