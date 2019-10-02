@@ -1,22 +1,51 @@
-// modalClose();
-// $('tbody#expenses-table-body tr').remove();
-// $('tbody#expenses-table-body').append('<%= j render "expenses" %>');
-// $('#index-bar').remove();
-// $('div#index-data').prepend('<%= j render "indexbar" %>');
 
+<% if @expense.errors.empty? %>
+	function refresh2() {
+	  // console.log('Index JS');
+	  modalClose();
 
-function refresh1() {
-	// console.log('Index JS');
-	modalClose();
+	  $('tbody#expenses-table-body tr').remove();
+	  $('tbody#expenses-table-body').append('<%= j render "expenses" %>');
 
-	$('tbody#expenses-table-body tr').remove();
-	$('tbody#expenses-table-body').append('<%= j render "expenses" %>');
+	  $('#index-bar').remove();
+	  $('div#index-filters').prepend('<%= j render "indexbar" %>');
 
-	$('#index-bar').remove();
-	$('div#index-filters').prepend('<%= j render "indexbar" %>');
-	$('body').append('<%= j render "ok-updated" %>').show();
+	  $('#dateFilter').remove();
+	  $('h4.dropdown').prepend('<%= j render "dateFilter" %>');
 
-}
+	  $('body').prepend('<%= j render "ok-updated" %>');
 
+	}
+	$(document).on('page:load', refresh2());
+<% else %>
+	$('div#concept').removeClass('has-error');
+	$('label#concept-id').remove();
 
-$(document).on('page:load', refresh1());
+	$('div#exdate').removeClass('has-error');
+	$('label#exdate-id').remove();
+
+	$('div#amount').removeClass('has-error');
+	$('label#amount-id').remove();
+
+	<% if !@expense.errors[:concept].empty? %>
+		$('div#concept').addClass('has-error');
+		$('div#concept').append('<label class="control-label" id="concept-id"> Concept <%= j @expense.errors[:concept][0] %> </label>');
+	<% else %>
+		$('div#concept').removeClass('has-error');
+		$('label#concept-id').remove();
+	<% end %>
+	<% if !@expense.errors[:exdate].empty? %>
+		$('div#exdate').addClass('has-error');
+		$('div#exdate').append('<label class="control-label id="exdate-id"> Date <%= j @expense.errors[:exdate][0] %> </label>');
+	<% else %>
+		$('div#exdate').removeClass('has-error');
+		$('label#exdate-id').remove();
+	<% end %>
+	<% if !@expense.errors[:amount].empty? %>
+		$('div#amount').addClass('has-error');
+		$('div#amount').append('<label class="control-label" id="amount-id"> Amount <%= j @expense.errors[:amount][0] %> </label>');
+	<% else %>
+		$('div#amount').removeClass('has-error');
+		$('label#amount-id').remove();
+	<% end %>
+<% end %>
