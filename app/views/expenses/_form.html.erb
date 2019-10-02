@@ -7,14 +7,14 @@
       </div>
       <%= form_for @expense, remote: true do |f| %>
         <div class="modal-body">
-          <div class="row">
+          <div class="form-row">
             <div class="col-4">
               <div class="form-group">
                 <%= f.select :extype, Expense.extypes.keys, class: "form-control form-control-lg input", placeholder: "Tipo de gasto" %>
               </div>
             </div>
             <div class="col-4">
-              <div class="form-group">
+              <div class="form-group" id="exdate">
                 <% if task == "new" %>
                   <%= f.date_field :exdate, :value => Date.today, class: "form-control input-lg", placeholder: "Fecha" %>
                 <% else %>
@@ -23,7 +23,7 @@
               </div>
             </div>
           </div>
-          <div class="form-group">
+          <div class="form-group" id="concept">
             <%= f.text_field :concept, class: "form-control input-lg", placeholder: "Concept" %>
           </div>
           <div class="row">
@@ -33,7 +33,7 @@
               </div>
             </div>
             <div class="col-4">
-              <div class="form-group">
+              <div class="form-group" id="amount">
                 <%= f.number_field :amount, class: "form-control input-lg", placeholder: "Amount" %>
               </div>
             </div>

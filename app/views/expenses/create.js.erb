@@ -18,5 +18,34 @@
 	}
 	$(document).on('page:load', refresh2());
 <% else %>
-	alert('<%= @expense.errors.full_messages[0] %>');
+	$('div#concept').removeClass('has-error');
+	$('label#concept-id').remove();
+
+	$('div#exdate').removeClass('has-error');
+	$('label#exdate-id').remove();
+
+	$('div#amount').removeClass('has-error');
+	$('label#amount-id').remove();
+
+	<% if !@expense.errors[:concept].empty? %>
+		$('div#concept').addClass('has-error');
+		$('div#concept').append('<label class="control-label" id="concept-id"> Concept <%= j @expense.errors[:concept][0] %> </label>');
+	<% else %>
+		$('div#concept').removeClass('has-error');
+		$('label#concept-id').remove();
+	<% end %>
+	<% if !@expense.errors[:exdate].empty? %>
+		$('div#exdate').addClass('has-error');
+		$('div#exdate').append('<label class="control-label id="exdate-id"> Date <%= j @expense.errors[:exdate][0] %> </label>');
+	<% else %>
+		$('div#exdate').removeClass('has-error');
+		$('label#exdate-id').remove();
+	<% end %>
+	<% if !@expense.errors[:amount].empty? %>
+		$('div#amount').addClass('has-error');
+		$('div#amount').append('<label class="control-label" id="amount-id"> Amount <%= j @expense.errors[:amount][0] %> </label>');
+	<% else %>
+		$('div#amount').removeClass('has-error');
+		$('label#amount-id').remove();
+	<% end %>
 <% end %>
