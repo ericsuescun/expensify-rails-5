@@ -7,13 +7,13 @@
       </div>
       <%= form_for @expense, remote: true do |f| %>
         <div class="modal-body">
-          <div class="form-row">
-            <div class="col-4">
+          <div class="row">
+            <div class="col-sm-6">
               <div class="form-group">
-                <%= f.select :extype, Expense.extypes.keys, class: "form-control form-control-lg input", placeholder: "Tipo de gasto" %>
+                <%= f.select :extype, extypeCapitalized, { }, { class: "form-control input-lg", placeholder: "Tipo de gasto" } %>
               </div>
             </div>
-            <div class="col-4">
+            <div class="col-sm-6">
               <div class="form-group" id="exdate">
                 <% if task == "new" %>
                   <%= f.date_field :exdate, :value => Date.today, class: "form-control input-lg", placeholder: "Fecha" %>
@@ -27,12 +27,12 @@
             <%= f.text_field :concept, class: "form-control input-lg", placeholder: "Concept" %>
           </div>
           <div class="row">
-            <div class="col-4">
+            <div class="col-sm-6">
               <div class="form-group">
-                <%= f.select :category, Expense.categories.keys, class: "form-control form-control-lg input", placeholder: "Category" %>
+                <%= f.select :category, categoryCapitalized, { }, { class: "form-control input-lg", placeholder: "Category" } %>
               </div>
             </div>
-            <div class="col-4">
+            <div class="col-sm-6">
               <div class="form-group" id="amount">
                 <%= f.number_field :amount, class: "form-control input-lg", placeholder: "Amount" %>
               </div>
