@@ -2,7 +2,7 @@
   <h4 class="filter-header">Transaction Type <span>Choose to filter</span></h4>
   <div class="list-group filter-type extype">
     <% Expense.extypes.each do |extype, value| %>
-      <% if params[:extype].blank? && params[:category].blank? %>
+      <% if params[:month].blank? && params[:year].blank? && params[:extype].blank? && params[:category].blank? %>
         <%= link_to extype.capitalize, "#{request.protocol}#{request.host_with_port}#{request.path}" + "?month=" + Date.today.month.to_s + "&year=" + Date.today.year.to_s + '&extype=' + extype, remote: true, class: "list-group-item extype" %>
       <% else %>
         <% if params[:extype] == extype %>
@@ -26,7 +26,7 @@
   <h4 class="filter-header">Categoría <span>Selecciona para filtrar</span></h4>
   <div class="list-group filter-type category">
     <% Expense.categories.each do |category, value| %>
-      <% if params[:extype].blank? && params[:category].blank? %>
+      <% if params[:month].blank? && params[:year].blank? && params[:extype].blank? && params[:category].blank? %>
         <%= link_to category.capitalize, "#{request.protocol}#{request.host_with_port}#{request.path}" + "?month=" + Date.today.month.to_s + "&year=" + Date.today.year.to_s + '&category=' + category, remote: true, class: "list-group-item category" %>
       <% else %>
         <% if params[:category] == category %>
