@@ -30,7 +30,7 @@ module Api
 				  end
 				end
 				
-				respond_with expenses
+				respond_with @expenses
 			end
 
 			def show
